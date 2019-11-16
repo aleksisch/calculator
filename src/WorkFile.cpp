@@ -1,21 +1,31 @@
-#include "../include/AkinatorTree.h"
+#include "../include/CalcTree.h"
 
-int FirstWordFromText(char** ptr_on_text, int tmp_word, bool is_operator)
+int FirstWordFromText(char** ptr_on_text, int tmp_num)
 {
     SkipToBrace(ptr_on_text);
 
-    int counter = 0;
+    int readed = 0;
+    tmp_num = 0;
 
+    sscanf(*ptr_on_text, "%d%n", &tmp_num, &readed);
 
+    if (readed == 0 && **ptr_on_text == '(')
+        return NOT_READ;
 
-    printf("%s\n", tmp_word);
-    if (counter > STR_LENGTH - 1)
-        return LONG_STRING;
-
-    if (**ptr_on_text == '}')
+    switch (**ptr_on_text)
     {
-        (*ptr_on_text)++;
-        return NIL;
+        case '+':
+            tmp_num = ADD;
+            break;
+        case '-':
+            tmp_num = SUB;
+            break;
+        case '*':
+            tmp_num = MUL;
+            break;
+        case '/':
+            tmp_num = DIV;
+
     }
 
     return OK;

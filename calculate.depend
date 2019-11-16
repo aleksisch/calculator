@@ -1,4 +1,25 @@
 # depslib dependency file v1.0
-1573929592 source:/home/aleksey/c++/calculate/main.cpp
+1573932316 source:/home/aleksey/c++/calculate/main.cpp
 	<iostream>
+
+1573936877 source:/home/aleksey/c++/calculate/src/CalcTree.cpp
+	"../include/CalcTree.h"
+	"../include/WorkFile.h"
+
+1573936794 /home/aleksey/c++/calculate/include/CalcTree.h
+	<stdio.h>
+	<cstring>
+	<stdlib.h>
+	"constants.h"
+	"WorkFile.h"
+
+1573936574 /home/aleksey/c++/calculate/include/constants.h
+
+1573936606 /home/aleksey/c++/calculate/include/WorkFile.h
+
+1573936724 source:/home/aleksey/c++/calculate/src/GraphToDot.cpp
+	"../include/CalcTree.h"
+
+1573936927 source:/home/aleksey/c++/calculate/src/WorkFile.cpp
+	"../include/CalcTree.h"
 

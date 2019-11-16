@@ -1,7 +1,7 @@
 #ifndef WORKFILE_H_INCLUDED
 #define WORKFILE_H_INCLUDED
 
-int FirstWordFromText(char** ptr_on_text, char* tmp_word);
+int FirstWordFromText(char** ptr_on_text, int tmp_num);
 
 void SkipToBrace(char** ptr_on_text);
 

@@ -2,6 +2,7 @@
 #define CalcTree_H
 
 #include <stdio.h>
+#include <cstring>
 #include <stdlib.h>
 #include "constants.h"
 #include "WorkFile.h"
@@ -13,7 +14,7 @@ struct TreeNode
     TreeNode* left_child;
     TreeNode* right_child;
 
-    TreeNode(const int num, bool oper = false ) :
+    TreeNode(const int num = 0, bool oper = false ) :
         number(num),
         is_operator(oper),
         left_child(nullptr),

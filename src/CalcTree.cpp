@@ -1,4 +1,5 @@
 #include "../include/CalcTree.h"
+#include "../include/WorkFile.h"
 
 CalcTree::CalcTree()
 {
@@ -44,16 +45,14 @@ int CalcTree::FillGraph(TreeNode* current, char** ptr_on_text)
 
     else PrintError(err, "FillGraph, can't read");
 
-    int err = FirstWordFromText(ptr_on_text, tmp_number);
+    err = FirstWordFromText(ptr_on_text, tmp_number);
 
     if (err == OK)
-    {
         current->number = tmp_number;
-    }
 
     else PrintError(err, "FillGraph, can't read");
 
-    int err = FirstWordFromText(ptr_on_text, tmp_number);
+    err = FirstWordFromText(ptr_on_text, tmp_number);
 
     if (err == NOT_READ)
     {
@@ -73,7 +72,7 @@ int CalcTree::FillGraph(TreeNode* current, char** ptr_on_text)
 }
 
 
-int AkinatorTree::ReadGraphFile(const char* input_file)
+int CalcTree::ReadGraphFile(const char* input_file)
 {
     size_t size = 0;
 
@@ -86,18 +85,18 @@ int AkinatorTree::ReadGraphFile(const char* input_file)
     return 0;
 }
 
-int AkinatorTree::NodeToFile(TreeNode* current_node, FILE* output_file)
+int CalcTree::NodeToFile(TreeNode* current_node, FILE* output_file)
 {
     if (current_node  != nullptr)
     {
-        fprintf(output_file, "{ \n\t\"%s\"\n", current_node->data);
+        fprintf(output_file, "{ \n\t\"%d\"\n", current_node->number);
         WriteGraph(current_node, output_file);
     }
 
     fprintf(output_file, " }\n");
 }
 
-int AkinatorTree::WriteGraph(TreeNode* current_node, FILE* output_file)
+int CalcTree::WriteGraph(TreeNode* current_node, FILE* output_file)
 {
     NodeToFile(current_node->left_child, output_file);
     NodeToFile(current_node->right_child, output_file);
@@ -106,11 +105,11 @@ int AkinatorTree::WriteGraph(TreeNode* current_node, FILE* output_file)
 }
 
 
-int AkinatorTree::WriteGraphFile(const char* output_file)
+int CalcTree::WriteGraphFile(const char* output_file)
 {
     FILE* graph_file = fopen(output_file, "w");
 
-    fprintf(graph_file, "{ \"%s\"\n", head_node->data);
+    fprintf(graph_file, "{ \"%d\"\n", head_node->number);
 
     WriteGraph(head_node, graph_file);
 

@@ -10,7 +10,7 @@ static const char* output_graphviz = "tmp_dump.dt";
 static const int STR_LENGTH = 255;
 static const int MAX_DEPTH = 100;
 
-enum ReturnCode
+enum Return
 {
     OK = 0,
     NIL,
@@ -18,6 +18,16 @@ enum ReturnCode
     END_OF_GAME,
     BAD_NAME,
     NOT_READ,
+
+};
+
+enum Operands
+{
+    SUB,
+    ADD,
+    DIV,
+    MUL,
+    UNKNOWN_OPERATION
 };
 
 #endif // CONSTANTS_H_INCLUDED
