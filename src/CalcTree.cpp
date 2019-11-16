@@ -35,36 +35,31 @@ int CalcTree::FillGraph(TreeNode* current, char** ptr_on_text)
     int tmp_number = 0;
 
     int err = FirstWordFromText(ptr_on_text, &tmp_number);
+    int err2 = 0;
+
     printf("tmp1 %d %d\n", tmp_number, err);
 
     if (err == NOT_READ)
     {
         current->left_child = new TreeNode();
         FillGraph(current->left_child, ptr_on_text);
+        err2 = FirstWordFromText(ptr_on_text, &tmp_number);
     }
 
     else if (err == OK)
     {
+        printf("tmp2 %d %d\n", tmp_number, err);
         current->number = tmp_number;
         return OK;
     }
 
-    else PrintError(err, "FillGraph, can't read");
-
-    err = FirstWordFromText(ptr_on_text, &tmp_number);
-    printf("tmp2 %d %d\n", tmp_number, err);
-
-    if (err == OK)
-        current->number = tmp_number;
-
-    else PrintError(err, "FillGraph, can't read");
+    else PrintError(err, "FillGraph, can't read first print");
 
     err = FirstWordFromText(ptr_on_text, &tmp_number);
     printf("tmp3 %d %d\n", tmp_number, err);
 
     if (err == NOT_READ)
     {
-        printf("ENTER");
         current->right_child = new TreeNode();
         FillGraph(current->right_child, ptr_on_text);
     }

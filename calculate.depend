@@ -2,7 +2,7 @@
 1573945035 source:/home/aleksey/c++/calculate/main.cpp
 	"include/CalcTree.h"
 
-1573946158 source:/home/aleksey/c++/calculate/src/CalcTree.cpp
+1573948213 source:/home/aleksey/c++/calculate/src/CalcTree.cpp
 	"../include/CalcTree.h"
 	"../include/WorkFile.h"
 
