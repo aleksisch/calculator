@@ -1,0 +1,11 @@
+#include "TreeCalc.h"
+
+TreeCalc::TreeCalc()
+{
+    this->
+}
+
+TreeCalc::~TreeCalc()
+{
+    //dtor
+}

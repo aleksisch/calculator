@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<BrowseTracker_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="include\CalcTree.h" open="1" top="0" tabpos="3">
+		<Cursor position="1145" topLine="9" />
+	</File>
+	<File name="src\CalcTree.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="1383" topLine="20" />
+		<BrowseMarks positions="187,417,440,91" />
+	</File>
+	<File name="include\constants.h" open="1" top="0" tabpos="5">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include\WorkFile.h" open="1" top="0" tabpos="4">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="src\WorkFile.cpp" open="1" top="1" tabpos="6">
+		<Cursor position="118" topLine="0" />
+		<BrowseMarks positions="245,118" />
+	</File>
+	<File name="src\GraphToDot.cpp" open="1" top="0" tabpos="7">
+		<Cursor position="1604" topLine="0" />
+		<BrowseMarks positions="1603" />
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="60" topLine="0" />
+	</File>
+</BrowseTracker_layout_file>
