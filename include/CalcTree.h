@@ -1,8 +1,9 @@
 #ifndef CalcTree_H
 #define CalcTree_H
 
-#include <stdio.h>
+#include <string>
 #include <cstring>
+#include <stdio.h>
 #include <stdlib.h>
 #include "constants.h"
 #include "WorkFile.h"
@@ -37,6 +38,8 @@ class CalcTree
 
         int WriteGraphFile(const char* output_file = output_graph_file);
 
+        TreeNode* GetHead();
+
     private:
 
         TreeNode* head_node;
@@ -52,5 +55,8 @@ class CalcTree
         int WriteGraph(TreeNode* current_node, FILE* output_file);
 
 };
+
+const char* NodeDataToStr(TreeNode* current);
+
 
 #endif // CalcTree_H

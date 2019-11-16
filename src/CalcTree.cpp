@@ -11,6 +11,11 @@ CalcTree::~CalcTree()
     FreeTree();
 }
 
+TreeNode* CalcTree::GetHead()
+{
+    return this->head_node;
+}
+
 void CalcTree::FreeTree(TreeNode* current)
 {
     if (current == nullptr)
@@ -29,7 +34,8 @@ int CalcTree::FillGraph(TreeNode* current, char** ptr_on_text)
 {
     int tmp_number = 0;
 
-    int err = FirstWordFromText(ptr_on_text, tmp_number);
+    int err = FirstWordFromText(ptr_on_text, &tmp_number);
+    printf("tmp1 %d %d\n", tmp_number, err);
 
     if (err == NOT_READ)
     {
@@ -45,29 +51,31 @@ int CalcTree::FillGraph(TreeNode* current, char** ptr_on_text)
 
     else PrintError(err, "FillGraph, can't read");
 
-    err = FirstWordFromText(ptr_on_text, tmp_number);
+    err = FirstWordFromText(ptr_on_text, &tmp_number);
+    printf("tmp2 %d %d\n", tmp_number, err);
 
     if (err == OK)
         current->number = tmp_number;
 
     else PrintError(err, "FillGraph, can't read");
 
-    err = FirstWordFromText(ptr_on_text, tmp_number);
+    err = FirstWordFromText(ptr_on_text, &tmp_number);
+    printf("tmp3 %d %d\n", tmp_number, err);
 
     if (err == NOT_READ)
     {
+        printf("ENTER");
         current->right_child = new TreeNode();
         FillGraph(current->right_child, ptr_on_text);
     }
 
     else if (err == OK)
-    {
-        current->number = tmp_number;
-        return OK;
-    }
+        current->right_child = new TreeNode(tmp_number);
 
-    else PrintError(err, "FillGraph, can't read");
+    else
+        PrintError(err, "FillGraph, can't read");
 
+    (*ptr_on_text)++;
     return OK;
 }
 
@@ -89,7 +97,7 @@ int CalcTree::NodeToFile(TreeNode* current_node, FILE* output_file)
 {
     if (current_node  != nullptr)
     {
-        fprintf(output_file, "{ \n\t\"%d\"\n", current_node->number);
+        fprintf(output_file, "(\n\t%d%d%d\"\n", current_node->number);
         WriteGraph(current_node, output_file);
     }
 

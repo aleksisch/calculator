@@ -1,7 +1,4 @@
-#include <iostream>
 #include "include/CalcTree.h"
-
-using namespace std;
 
 int main()
 {
@@ -11,6 +8,10 @@ int main()
     CalcTree cur;
 
     cur.ReadGraphFile();
+    cur.GraphToDot();
+    printf("%d", cur.GetHead()->number);
+    printf("%p", cur.GetHead()->left_child->number);
+    printf("%p", cur.GetHead()->right_child);
 
     return 0;
 }
