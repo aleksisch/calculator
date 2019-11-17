@@ -12,6 +12,7 @@ int main()
     printf("%d", cur.GetHead()->number);
     printf("%p", cur.GetHead()->left_child->number);
     printf("%p", cur.GetHead()->right_child);
-
+    cur.WriteGraphFile();
+    printf("\n%d\n", cur.GetResult());
     return 0;
 }

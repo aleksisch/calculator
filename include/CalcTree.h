@@ -36,7 +36,9 @@ class CalcTree
 
         int ReadGraphFile(const char* input_file = input_graph_file);
 
-        int WriteGraphFile(const char* output_file = output_graph_file);
+        int WriteGraphFile(TreeNode* start_node = nullptr, const char* output_file = output_graph_file);
+
+        int GetResult(TreeNode* current = nullptr);
 
         TreeNode* GetHead();
 
@@ -52,7 +54,7 @@ class CalcTree
 
         void FreeTree(TreeNode* current = nullptr);
 
-        int WriteGraph(TreeNode* current_node, FILE* output_file);
+        int WriteGraph(TreeNode* current_node, FILE* output_file, bool is_first = true);
 
 };
 
