@@ -9,8 +9,8 @@ char* ReadFile (const char* str, size_t *size, const char* chmod = "r");
 
 const char* bool_to_str(bool a);
 
-int GetString(char* str);
+void GetString(char* str);
 
-int PrintError(int err_code, const char* function_name = "");
+void PrintError(int err_code, const char* function_name = "");
 
 #endif // WORKFILE_H_INCLUDED

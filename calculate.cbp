@@ -38,6 +38,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/CalcTree.cpp" />
 		<Unit filename="src/GraphToDot.cpp" />
+		<Unit filename="src/StringConst.cpp" />
 		<Unit filename="src/WorkFile.cpp" />
 		<Extensions>
 			<code_completion />

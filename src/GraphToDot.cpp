@@ -1,6 +1,6 @@
-#include "../include/CalcTree.h"
+#include "../include/MainHeader.h"
 
-int CalcTree::WriteDump(FILE* file, TreeNode* current)
+void CalcTree::WriteDump(FILE* file, TreeNode* current)
 {
     if (current == nullptr)
         current = head_node;
@@ -24,9 +24,10 @@ int CalcTree::WriteDump(FILE* file, TreeNode* current)
 
         WriteDump(file, current->right_child);
     }
+
 }
 
-int CalcTree::GraphToDot()
+void CalcTree::GraphToDot()
 {
     char input_path[STR_LENGTH] = {};
     sprintf(input_path, "%s", output_graphviz);
@@ -46,26 +47,4 @@ int CalcTree::GraphToDot()
     sprintf(str_to_system, "dot -Tjpg -O %s", output_graphviz);
 
     system(str_to_system);
-}
-
-const char* NodeDataToStr(TreeNode* current)
-{
-    if (current->left_child != nullptr &&
-        current->right_child != nullptr)
-    switch ( current->number)
-    {
-    case ADD:
-        return "+";
-    case SUB:
-        return "-";
-    case MUL:
-        return "*";
-    case DIV:
-        return "/";
-    default:
-        return "unknown cmd";
-    }
-
-    std::string res = std::to_string(current->number);
-    return res.c_str();
 }

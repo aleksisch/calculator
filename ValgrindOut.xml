@@ -1,0 +1,532 @@
+<?xml version="1.0"?>
+
+<valgrindoutput>
+
+<protocolversion>4</protocolversion>
+<protocoltool>memcheck</protocoltool>
+
+<preamble>
+  <line>Memcheck, a memory error detector</line>
+  <line>Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.</line>
+  <line>Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info</line>
+  <line>Command: /home/aleksey/c++/calculate/bin/Debug/calculate</line>
+</preamble>
+
+<pid>6081</pid>
+<ppid>5336</ppid>
+<tool>memcheck</tool>
+
+<args>
+  <vargv>
+    <exe>/usr/bin/valgrind.bin</exe>
+    <arg>--leak-check=full</arg>
+    <arg>--track-origins=yes</arg>
+    <arg>--xml=yes</arg>
+    <arg>--xml-file=/home/aleksey/c++/calculate/ValgrindOut.xml</arg>
+  </vargv>
+  <argv>
+    <exe>/home/aleksey/c++/calculate/bin/Debug/calculate</exe>
+  </argv>
+</args>
+
+<status>
+  <state>RUNNING</state>
+  <time>00:00:00:00.091 </time>
+</status>
+
+<error>
+  <unique>0x0</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C32CF9</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>strlen</fn>
+    </frame>
+    <frame>
+      <ip>0x543A4D2</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1643</line>
+    </frame>
+    <frame>
+      <ip>0x5441E53</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>fprintf</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
+      <file>fprintf.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x10A1A9</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x10A365</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::GraphToDot()</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>39</line>
+    </frame>
+    <frame>
+      <ip>0x109B0F</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>main</fn>
+      <dir>/home/aleksey/c++/calculate</dir>
+      <file>main.cpp</file>
+      <line>8</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x1098F0</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x1</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C32D08</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>strlen</fn>
+    </frame>
+    <frame>
+      <ip>0x543A4D2</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1643</line>
+    </frame>
+    <frame>
+      <ip>0x5441E53</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>fprintf</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
+      <file>fprintf.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x10A1A9</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>11</line>
+    </frame>
+    <frame>
+      <ip>0x10A365</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::GraphToDot()</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>39</line>
+    </frame>
+    <frame>
+      <ip>0x109B0F</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>main</fn>
+      <dir>/home/aleksey/c++/calculate</dir>
+      <file>main.cpp</file>
+      <line>8</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x1098F0</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x6</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C32CF9</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>strlen</fn>
+    </frame>
+    <frame>
+      <ip>0x543A4D2</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1643</line>
+    </frame>
+    <frame>
+      <ip>0x5441E53</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>fprintf</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
+      <file>fprintf.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x10A25D</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>21</line>
+    </frame>
+    <frame>
+      <ip>0x10A29F</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>25</line>
+    </frame>
+    <frame>
+      <ip>0x10A29F</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>25</line>
+    </frame>
+    <frame>
+      <ip>0x10A365</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::GraphToDot()</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>39</line>
+    </frame>
+    <frame>
+      <ip>0x109B0F</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>main</fn>
+      <dir>/home/aleksey/c++/calculate</dir>
+      <file>main.cpp</file>
+      <line>8</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x1098F0</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x7</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4C32D08</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>strlen</fn>
+    </frame>
+    <frame>
+      <ip>0x543A4D2</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>vfprintf</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
+      <file>vfprintf.c</file>
+      <line>1643</line>
+    </frame>
+    <frame>
+      <ip>0x5441E53</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>fprintf</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
+      <file>fprintf.c</file>
+      <line>32</line>
+    </frame>
+    <frame>
+      <ip>0x10A25D</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>21</line>
+    </frame>
+    <frame>
+      <ip>0x10A29F</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>25</line>
+    </frame>
+    <frame>
+      <ip>0x10A29F</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>25</line>
+    </frame>
+    <frame>
+      <ip>0x10A365</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::GraphToDot()</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>39</line>
+    </frame>
+    <frame>
+      <ip>0x109B0F</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>main</fn>
+      <dir>/home/aleksey/c++/calculate</dir>
+      <file>main.cpp</file>
+      <line>8</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x1098F0</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x8</unique>
+  <tid>1</tid>
+  <kind>SyscallParam</kind>
+  <what>Syscall param write(buf) points to uninitialised byte(s)</what>
+  <stack>
+    <frame>
+      <ip>0x54ED154</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>write</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/io/../sysdeps/unix/sysv/linux</dir>
+      <file>write.c</file>
+      <line>27</line>
+    </frame>
+    <frame>
+      <ip>0x54681BC</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>_IO_file_write@@GLIBC_2.2.5</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
+      <file>fileops.c</file>
+      <line>1203</line>
+    </frame>
+    <frame>
+      <ip>0x5469F50</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>new_do_write</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
+      <file>fileops.c</file>
+      <line>457</line>
+    </frame>
+    <frame>
+      <ip>0x5469F50</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>_IO_do_write@@GLIBC_2.2.5</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
+      <file>fileops.c</file>
+      <line>433</line>
+    </frame>
+    <frame>
+      <ip>0x546930F</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>_IO_file_close_it@@GLIBC_2.2.5</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
+      <file>fileops.c</file>
+      <line>136</line>
+    </frame>
+    <frame>
+      <ip>0x545B386</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>fclose@@GLIBC_2.2.5</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
+      <file>iofclose.c</file>
+      <line>53</line>
+    </frame>
+    <frame>
+      <ip>0x10A388</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::GraphToDot()</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>43</line>
+    </frame>
+    <frame>
+      <ip>0x109B0F</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>main</fn>
+      <dir>/home/aleksey/c++/calculate</dir>
+      <file>main.cpp</file>
+      <line>8</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x5b8051b is 75 bytes inside a block of size 4,096 alloc'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x4C2FB0F</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x545B18B</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>_IO_file_doallocate</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
+      <file>filedoalloc.c</file>
+      <line>101</line>
+    </frame>
+    <frame>
+      <ip>0x546B378</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>_IO_doallocbuf</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
+      <file>genops.c</file>
+      <line>365</line>
+    </frame>
+    <frame>
+      <ip>0x546A497</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>_IO_file_overflow@@GLIBC_2.2.5</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
+      <file>fileops.c</file>
+      <line>759</line>
+    </frame>
+    <frame>
+      <ip>0x54689EC</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>_IO_file_xsputn@@GLIBC_2.2.5</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
+      <file>fileops.c</file>
+      <line>1266</line>
+    </frame>
+    <frame>
+      <ip>0x545C976</ip>
+      <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
+      <fn>fwrite</fn>
+      <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
+      <file>iofwrite.c</file>
+      <line>39</line>
+    </frame>
+    <frame>
+      <ip>0x10A347</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::GraphToDot()</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>37</line>
+    </frame>
+    <frame>
+      <ip>0x109B0F</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>main</fn>
+      <dir>/home/aleksey/c++/calculate</dir>
+      <file>main.cpp</file>
+      <line>8</line>
+    </frame>
+  </stack>
+  <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x1098F0</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+    </frame>
+  </stack>
+</error>
+
+
+<status>
+  <state>FINISHED</state>
+  <time>00:00:00:00.946 </time>
+</status>
+
+<error>
+  <unique>0x9</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>14 bytes in 1 blocks are definitely lost in loss record 1 of 1</text>
+    <leakedbytes>14</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C31B25</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>calloc</fn>
+    </frame>
+    <frame>
+      <ip>0x10ADC4</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>ReadFile(char const*, unsigned long*, char const*)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>WorkFile.cpp</file>
+      <line>74</line>
+    </frame>
+    <frame>
+      <ip>0x109F24</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::ReadGraphFile(char const*)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>CalcTree.cpp</file>
+      <line>93</line>
+    </frame>
+    <frame>
+      <ip>0x109B03</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>main</fn>
+      <dir>/home/aleksey/c++/calculate</dir>
+      <file>main.cpp</file>
+      <line>7</line>
+    </frame>
+  </stack>
+</error>
+
+<errorcounts>
+  <pair>
+    <count>1</count>
+    <unique>0x8</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x7</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x6</unique>
+  </pair>
+  <pair>
+    <count>3</count>
+    <unique>0x1</unique>
+  </pair>
+  <pair>
+    <count>3</count>
+    <unique>0x0</unique>
+  </pair>
+</errorcounts>
+
+<suppcounts>
+</suppcounts>
+
+</valgrindoutput>
+

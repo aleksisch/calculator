@@ -1,4 +1,4 @@
-#include "../include/CalcTree.h"
+#include "../include/MainHeader.h"
 
 int FirstWordFromText(char** ptr_on_text, int* tmp_num)
 {
@@ -8,46 +8,38 @@ int FirstWordFromText(char** ptr_on_text, int* tmp_num)
 
     char tmp_str[STR_LENGTH] = {0};
 
-    char symbol = 0;
-
-    int read_var = sscanf(*ptr_on_text, "%[0-9]%n", tmp_str, &readed);
+    int read_var = sscanf(*ptr_on_text, "%[0-9.,]%n", tmp_str, &readed);
 
     if (read_var == 0)
-        readed = 0;
+    {
+        int read_str = sscanf(*ptr_on_text, "%[^0-9().,]%n", tmp_str, &readed);
 
-    if (readed != 0)
+        if (read_str == 0)
+        {
+            (*ptr_on_text)++;
+            return NOT_READ;
+        }
+
+        else
+        {
+            printf("read str %s\n", tmp_str);
+            (*ptr_on_text) += readed;
+            bool is_func = false;
+            *tmp_num = StrCmdToNum(tmp_str, &is_func);
+
+            if (is_func)
+                return FUNC;
+            else
+                return OK;
+        }
+    }
+
+    else
     {
         *tmp_num = std::stoi(tmp_str);
         (*ptr_on_text) += readed;
         return OK;
     }
-
-    else if (**ptr_on_text == '(')
-    {
-        (*ptr_on_text)++;
-        return NOT_READ;
-    }
-
-    switch (**ptr_on_text)
-    {
-        case '+':
-            *tmp_num = ADD;
-            break;
-        case '-':
-            *tmp_num = SUB;
-            break;
-        case '*':
-            *tmp_num = MUL;
-            break;
-        case '/':
-            *tmp_num = DIV;
-            break;
-        default:
-            *tmp_num = UNKNOWN_OPERATION;
-    }
-
-    (*ptr_on_text)++;
-    return OK;
 }
 
 void SkipToBrace(char** ptr_on_text)
@@ -95,14 +87,14 @@ const char* bool_to_str(bool a)
         return "Not";
 }
 
-int GetString(char* str)
+void GetString(char* str)
 {
     fgets(str, STR_LENGTH, stdin);
     str[strlen(str) - 1] = '\0';
 }
 
 
-int PrintError(int err_code, const char* function_name)
+void PrintError(int err_code, const char* function_name)
 {
     printf("Error occured in function %s code %d", function_name, err_code);
 }

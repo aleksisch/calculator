@@ -1,27 +1,22 @@
 #ifndef CalcTree_H
 #define CalcTree_H
 
-#include <string>
-#include <cstring>
-#include <stdio.h>
-#include <stdlib.h>
-#include "constants.h"
-#include "WorkFile.h"
-
 struct TreeNode
 {
-    int number;
-    bool is_operator;
-    TreeNode* left_child;
-    TreeNode* right_child;
-
-    TreeNode(const int num = 0, bool oper = false ) :
+    TreeNode(const int num = 0, TreeNode* left_t = nullptr, TreeNode* right_t = nullptr, bool oper = 0) :
         number(num),
-        is_operator(oper),
-        left_child(nullptr),
-        right_child(nullptr)
+        type_node(oper),
+        left_child(left_t),
+        right_child(right_t)
     {
     }
+
+    TreeNode* Copy();
+    TreeNode* DiffNode();
+    int number;
+    int type_node;
+    TreeNode* left_child;
+    TreeNode* right_child;
 };
 
 class CalcTree
@@ -32,11 +27,11 @@ class CalcTree
 
         ~CalcTree();
 
-        int GraphToDot();
+        void GraphToDot();
 
-        int ReadGraphFile(const char* input_file = input_graph_file);
+        void ReadGraphFile(const char* input_file = input_graph_file);
 
-        int WriteGraphFile(TreeNode* start_node = nullptr, const char* output_file = output_graph_file);
+        void WriteGraphFile(TreeNode* start_node = nullptr, const char* output_file = output_graph_file);
 
         int GetResult(TreeNode* current = nullptr);
 
@@ -46,19 +41,15 @@ class CalcTree
 
         TreeNode* head_node;
 
-        int NodeToFile(TreeNode* current_node, FILE* output_file);
+        void NodeToFile(TreeNode* current_node, FILE* output_file);
 
-        int FillGraph(TreeNode* current, char** ptr_on_text);
+        void FillGraph(TreeNode* current, char** ptr_on_text);
 
-        int WriteDump(FILE* file, TreeNode* current = nullptr);
+        void WriteDump(FILE* file, TreeNode* current = nullptr);
 
         void FreeTree(TreeNode* current = nullptr);
 
-        int WriteGraph(TreeNode* current_node, FILE* output_file, bool is_first = true);
+        void WriteGraph(TreeNode* current_node, FILE* output_file, bool is_first = true);
 
 };
-
-const char* NodeDataToStr(TreeNode* current);
-
-
 #endif // CalcTree_H
