@@ -27,11 +27,10 @@ int ExecuteOperation(int first, int second, int operands)
     }
 }
 
-int StrCmdToNum(char* command, bool* is_func)
+int StrCmdToNum(char* command, int* type_cmd)
 {
-    //start operator
 
-    *is_func = false;
+    *type_cmd = OPERATION;
 
     if (strcmp(command, "+") == 0)
         return ADD;
@@ -45,9 +44,7 @@ int StrCmdToNum(char* command, bool* is_func)
     else if (strcmp(command, "/") == 0)
         return DIV;
 
-    //start function
-
-    *is_func = true;
+    *type_cmd = FUNC;
 
     if (strcmp(command, "ln") == 0)
         return LN;
@@ -60,6 +57,11 @@ int StrCmdToNum(char* command, bool* is_func)
 
     else if (strcmp(command, "tan") == 0)
         return TAN;
+
+    *type_cmd = VARIABLE;
+
+    if (strcmp(command, "x") == 0)
+        return VAR;
 
     else return UNKNOWN_OPERATION;
 }
@@ -86,10 +88,11 @@ const char* NodeDataToStr(TreeNode* current)
             return "cos";
         case TAN:
             return "tan";
+        case VAR:
+            return "x";
         default:
             return "unknown cmd";
     }
-
     std::string res = std::to_string(current->number);
     return res.c_str();
 }

@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1574089626 source:/home/aleksey/c++/calculate/main.cpp
+1574103885 source:/home/aleksey/c++/calculate/main.cpp
 	"include/MainHeader.h"
 
-1574091611 source:/home/aleksey/c++/calculate/src/CalcTree.cpp
+1574107621 source:/home/aleksey/c++/calculate/src/CalcTree.cpp
 	"../include/MainHeader.h"
 
-1574096275 /home/aleksey/c++/calculate/include/CalcTree.h
+1574107599 /home/aleksey/c++/calculate/include/CalcTree.h
 
 1574088915 /home/aleksey/c++/calculate/include/constants.h
 
@@ -14,13 +14,13 @@
 1574090806 source:/home/aleksey/c++/calculate/src/GraphToDot.cpp
 	"../include/MainHeader.h"
 
-1574090165 source:/home/aleksey/c++/calculate/src/WorkFile.cpp
+1574108356 source:/home/aleksey/c++/calculate/src/WorkFile.cpp
 	"../include/MainHeader.h"
 
-1574091732 source:/home/aleksey/c++/calculate/src/StringConst.cpp
+1574107854 source:/home/aleksey/c++/calculate/src/StringConst.cpp
 	"../include/MainHeader.h"
 
-1574093756 /home/aleksey/c++/calculate/include/MainHeader.h
+1574106667 /home/aleksey/c++/calculate/include/MainHeader.h
 	<string>
 	<cstring>
 	<stdio.h>
@@ -28,4 +28,7 @@
 	<math.h>
 	"WorkFile.h"
 	"CalcTree.h"
+
+1574106152 source:/home/aleksey/c++/calculate/src/Node.cpp
+	"../include/MainHeader.h"
 

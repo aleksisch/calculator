@@ -13,7 +13,11 @@ CalcTree::~CalcTree()
 TreeNode* CalcTree::GetHead()
 {
     return this->head_node;
+}
 
+void CalcTree::SetHead(TreeNode* tmp_node)
+{
+    this->head_node = tmp_node;
 }
 
 int CalcTree::GetResult(TreeNode* current)
@@ -44,56 +48,56 @@ void CalcTree::FreeTree(TreeNode* current)
     delete current;
 }
 
-void CalcTree::FillGraph(TreeNode* current, char** ptr_on_text)
+int CalcTree::GetArgument(char** ptr_on_text, int* tmp_number, TreeNode* current)
 {
-    int tmp_number = 0;
-    int ret = FirstWordFromText(ptr_on_text, &tmp_number);
+    int ret = FirstWordFromText(ptr_on_text, tmp_number);
 
     if (ret == NOT_READ)
     {
-        current->left_child = new TreeNode();
-        FillGraph(current->left_child, ptr_on_text);
+        current = new TreeNode(0, OPERATION);
+        FillGraph(current, ptr_on_text);
     }
 
-    else if (ret == OK)
-        current->left_child = new TreeNode(tmp_number);
+    else if (ret == VALUE)
+        current = new TreeNode(*tmp_number);
+
+    else if (ret == VARIABLE)
+        current = new TreeNode(*tmp_number, VARIABLE);
+
 
     else if (ret != FUNC)
-        PrintError(ret, "FillGraph, can't read first print");
+        PrintError(ret, "FillGraph, can't read right child");
+
+    return ret;
+}
+
+void CalcTree::FillGraph(TreeNode* current, char** ptr_on_text)
+{
+    int tmp_number = 0;
+
+    int ret = GetArgument(ptr_on_text, &tmp_number, current->left_child);
 
     if (ret == FUNC)
     {
         current->left_child = new TreeNode();
         current->number = tmp_number;
+        current->type_node = OPERATION;
     }
 
     else
     {
         ret = FirstWordFromText(ptr_on_text, &tmp_number);
 
-        if (ret == OK)
-            current->number = tmp_number;
+        current->number = tmp_number;
+        current->type_node = ret;
 
-        else
+        if (ret != VALUE && ret != OPERATION)
             PrintError(ret, "FillGraph, can't read second print");
     }
 
-    ret = FirstWordFromText(ptr_on_text, &tmp_number);
-
-    if (ret == NOT_READ)
-    {
-        current->right_child = new TreeNode();
-        FillGraph(current->right_child, ptr_on_text);
-    }
-
-    else if (ret == OK)
-        current->right_child = new TreeNode(tmp_number);
-
-    else
-        PrintError(ret, "FillGraph, can't read right child");
+    ret = GetArgument(ptr_on_text, &tmp_number, current->right_child);
 
     (*ptr_on_text)++;
-
 }
 
 
@@ -108,6 +112,7 @@ void CalcTree::ReadGraphFile(const char* input_file)
 
 void CalcTree::NodeToFile(TreeNode* current_node, FILE* output_file)
 {
+
     if (current_node->left_child  != nullptr && current_node->right_child != nullptr)
     {
         WriteGraph(current_node, output_file, false);
@@ -134,7 +139,7 @@ void CalcTree::WriteGraph(TreeNode* current_node, FILE* output_file, bool is_fir
 
 void CalcTree::WriteGraphFile(TreeNode* start_node, const char* output_file)
 {
-    if (start_node == nullptr) start_node = head_node;
+    if (start_node == nullptr) start_node = this->head_node;
     FILE* graph_file = fopen(output_file, "w");
 
     WriteGraph(start_node, graph_file);

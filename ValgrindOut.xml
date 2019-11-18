@@ -12,8 +12,8 @@
   <line>Command: /home/aleksey/c++/calculate/bin/Debug/calculate</line>
 </preamble>
 
-<pid>6081</pid>
-<ppid>5336</ppid>
+<pid>26645</pid>
+<ppid>2155</ppid>
 <tool>memcheck</tool>
 
 <args>
@@ -31,7 +31,7 @@
 
 <status>
   <state>RUNNING</state>
-  <time>00:00:00:00.091 </time>
+  <time>00:00:00:00.101 </time>
 </status>
 
 <error>
@@ -46,7 +46,7 @@
       <fn>strlen</fn>
     </frame>
     <frame>
-      <ip>0x543A4D2</ip>
+      <ip>0x57D84D2</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>vfprintf</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
@@ -54,7 +54,7 @@
       <line>1643</line>
     </frame>
     <frame>
-      <ip>0x5441E53</ip>
+      <ip>0x57DFE53</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>fprintf</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
@@ -62,7 +62,7 @@
       <line>32</line>
     </frame>
     <frame>
-      <ip>0x10A1A9</ip>
+      <ip>0x10A4EB</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
@@ -70,7 +70,7 @@
       <line>11</line>
     </frame>
     <frame>
-      <ip>0x10A365</ip>
+      <ip>0x10A6A7</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::GraphToDot()</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
@@ -78,7 +78,7 @@
       <line>39</line>
     </frame>
     <frame>
-      <ip>0x109B0F</ip>
+      <ip>0x109CDF</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>main</fn>
       <dir>/home/aleksey/c++/calculate</dir>
@@ -89,7 +89,7 @@
   <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
   <stack>
     <frame>
-      <ip>0x1098F0</ip>
+      <ip>0x109AB0</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
     </frame>
   </stack>
@@ -107,7 +107,7 @@
       <fn>strlen</fn>
     </frame>
     <frame>
-      <ip>0x543A4D2</ip>
+      <ip>0x57D84D2</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>vfprintf</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
@@ -115,7 +115,7 @@
       <line>1643</line>
     </frame>
     <frame>
-      <ip>0x5441E53</ip>
+      <ip>0x57DFE53</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>fprintf</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
@@ -123,7 +123,7 @@
       <line>32</line>
     </frame>
     <frame>
-      <ip>0x10A1A9</ip>
+      <ip>0x10A4EB</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
@@ -131,7 +131,7 @@
       <line>11</line>
     </frame>
     <frame>
-      <ip>0x10A365</ip>
+      <ip>0x10A6A7</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::GraphToDot()</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
@@ -139,7 +139,7 @@
       <line>39</line>
     </frame>
     <frame>
-      <ip>0x109B0F</ip>
+      <ip>0x109CDF</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>main</fn>
       <dir>/home/aleksey/c++/calculate</dir>
@@ -150,7 +150,7 @@
   <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
   <stack>
     <frame>
-      <ip>0x1098F0</ip>
+      <ip>0x109AB0</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
     </frame>
   </stack>
@@ -168,7 +168,7 @@
       <fn>strlen</fn>
     </frame>
     <frame>
-      <ip>0x543A4D2</ip>
+      <ip>0x57D84D2</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>vfprintf</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
@@ -176,7 +176,7 @@
       <line>1643</line>
     </frame>
     <frame>
-      <ip>0x5441E53</ip>
+      <ip>0x57DFE53</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>fprintf</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
@@ -184,7 +184,7 @@
       <line>32</line>
     </frame>
     <frame>
-      <ip>0x10A25D</ip>
+      <ip>0x10A59F</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
@@ -192,7 +192,7 @@
       <line>21</line>
     </frame>
     <frame>
-      <ip>0x10A29F</ip>
+      <ip>0x10A5E1</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
@@ -200,7 +200,15 @@
       <line>25</line>
     </frame>
     <frame>
-      <ip>0x10A29F</ip>
+      <ip>0x10A52D</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>15</line>
+    </frame>
+    <frame>
+      <ip>0x10A5E1</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
@@ -208,7 +216,7 @@
       <line>25</line>
     </frame>
     <frame>
-      <ip>0x10A365</ip>
+      <ip>0x10A6A7</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::GraphToDot()</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
@@ -216,7 +224,7 @@
       <line>39</line>
     </frame>
     <frame>
-      <ip>0x109B0F</ip>
+      <ip>0x109CDF</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>main</fn>
       <dir>/home/aleksey/c++/calculate</dir>
@@ -227,7 +235,7 @@
   <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
   <stack>
     <frame>
-      <ip>0x1098F0</ip>
+      <ip>0x109AB0</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
     </frame>
   </stack>
@@ -245,7 +253,7 @@
       <fn>strlen</fn>
     </frame>
     <frame>
-      <ip>0x543A4D2</ip>
+      <ip>0x57D84D2</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>vfprintf</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
@@ -253,7 +261,7 @@
       <line>1643</line>
     </frame>
     <frame>
-      <ip>0x5441E53</ip>
+      <ip>0x57DFE53</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>fprintf</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/stdio-common</dir>
@@ -261,7 +269,7 @@
       <line>32</line>
     </frame>
     <frame>
-      <ip>0x10A25D</ip>
+      <ip>0x10A59F</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
@@ -269,7 +277,7 @@
       <line>21</line>
     </frame>
     <frame>
-      <ip>0x10A29F</ip>
+      <ip>0x10A5E1</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
@@ -277,7 +285,15 @@
       <line>25</line>
     </frame>
     <frame>
-      <ip>0x10A29F</ip>
+      <ip>0x10A52D</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>GraphToDot.cpp</file>
+      <line>15</line>
+    </frame>
+    <frame>
+      <ip>0x10A5E1</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::WriteDump(_IO_FILE*, TreeNode*)</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
@@ -285,7 +301,7 @@
       <line>25</line>
     </frame>
     <frame>
-      <ip>0x10A365</ip>
+      <ip>0x10A6A7</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::GraphToDot()</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
@@ -293,7 +309,7 @@
       <line>39</line>
     </frame>
     <frame>
-      <ip>0x109B0F</ip>
+      <ip>0x109CDF</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>main</fn>
       <dir>/home/aleksey/c++/calculate</dir>
@@ -304,20 +320,20 @@
   <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
   <stack>
     <frame>
-      <ip>0x1098F0</ip>
+      <ip>0x109AB0</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
     </frame>
   </stack>
 </error>
 
 <error>
-  <unique>0x8</unique>
+  <unique>0xc</unique>
   <tid>1</tid>
   <kind>SyscallParam</kind>
   <what>Syscall param write(buf) points to uninitialised byte(s)</what>
   <stack>
     <frame>
-      <ip>0x54ED154</ip>
+      <ip>0x588B154</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>write</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/io/../sysdeps/unix/sysv/linux</dir>
@@ -325,7 +341,7 @@
       <line>27</line>
     </frame>
     <frame>
-      <ip>0x54681BC</ip>
+      <ip>0x58061BC</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>_IO_file_write@@GLIBC_2.2.5</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
@@ -333,7 +349,7 @@
       <line>1203</line>
     </frame>
     <frame>
-      <ip>0x5469F50</ip>
+      <ip>0x5807F50</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>new_do_write</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
@@ -341,7 +357,7 @@
       <line>457</line>
     </frame>
     <frame>
-      <ip>0x5469F50</ip>
+      <ip>0x5807F50</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>_IO_do_write@@GLIBC_2.2.5</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
@@ -349,7 +365,7 @@
       <line>433</line>
     </frame>
     <frame>
-      <ip>0x546930F</ip>
+      <ip>0x580730F</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>_IO_file_close_it@@GLIBC_2.2.5</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
@@ -357,7 +373,7 @@
       <line>136</line>
     </frame>
     <frame>
-      <ip>0x545B386</ip>
+      <ip>0x57F9386</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>fclose@@GLIBC_2.2.5</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
@@ -365,7 +381,7 @@
       <line>53</line>
     </frame>
     <frame>
-      <ip>0x10A388</ip>
+      <ip>0x10A6CA</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::GraphToDot()</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
@@ -373,7 +389,7 @@
       <line>43</line>
     </frame>
     <frame>
-      <ip>0x109B0F</ip>
+      <ip>0x109CDF</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>main</fn>
       <dir>/home/aleksey/c++/calculate</dir>
@@ -381,7 +397,7 @@
       <line>8</line>
     </frame>
   </stack>
-  <auxwhat>Address 0x5b8051b is 75 bytes inside a block of size 4,096 alloc'd</auxwhat>
+  <auxwhat>Address 0x5b806ab is 75 bytes inside a block of size 4,096 alloc'd</auxwhat>
   <stack>
     <frame>
       <ip>0x4C2FB0F</ip>
@@ -389,7 +405,7 @@
       <fn>malloc</fn>
     </frame>
     <frame>
-      <ip>0x545B18B</ip>
+      <ip>0x57F918B</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>_IO_file_doallocate</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
@@ -397,7 +413,7 @@
       <line>101</line>
     </frame>
     <frame>
-      <ip>0x546B378</ip>
+      <ip>0x5809378</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>_IO_doallocbuf</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
@@ -405,7 +421,7 @@
       <line>365</line>
     </frame>
     <frame>
-      <ip>0x546A497</ip>
+      <ip>0x5808497</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>_IO_file_overflow@@GLIBC_2.2.5</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
@@ -413,7 +429,7 @@
       <line>759</line>
     </frame>
     <frame>
-      <ip>0x54689EC</ip>
+      <ip>0x58069EC</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>_IO_file_xsputn@@GLIBC_2.2.5</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
@@ -421,7 +437,7 @@
       <line>1266</line>
     </frame>
     <frame>
-      <ip>0x545C976</ip>
+      <ip>0x57FA976</ip>
       <obj>/lib/x86_64-linux-gnu/libc-2.27.so</obj>
       <fn>fwrite</fn>
       <dir>/build/glibc-OTsEL5/glibc-2.27/libio</dir>
@@ -429,7 +445,7 @@
       <line>39</line>
     </frame>
     <frame>
-      <ip>0x10A347</ip>
+      <ip>0x10A689</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::GraphToDot()</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
@@ -437,7 +453,7 @@
       <line>37</line>
     </frame>
     <frame>
-      <ip>0x109B0F</ip>
+      <ip>0x109CDF</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>main</fn>
       <dir>/home/aleksey/c++/calculate</dir>
@@ -448,25 +464,110 @@
   <auxwhat>Uninitialised value was created by a stack allocation</auxwhat>
   <stack>
     <frame>
-      <ip>0x1098F0</ip>
+      <ip>0x109AB0</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
     </frame>
   </stack>
 </error>
 
+<error>
+  <unique>0xd</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x10A818</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>TreeNode::Addleft(int)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>Node.cpp</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10AD46</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>TreeNode::DiffNode()</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>Node.cpp</file>
+      <line>96</line>
+    </frame>
+    <frame>
+      <ip>0x10A9FB</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>TreeNode::DiffNode()</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>Node.cpp</file>
+      <line>62</line>
+    </frame>
+    <frame>
+      <ip>0x109D3B</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>main</fn>
+      <dir>/home/aleksey/c++/calculate</dir>
+      <file>main.cpp</file>
+      <line>14</line>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x8 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+<fatal_signal>
+  <tid>1</tid>
+  <signo>11</signo>
+  <signame>SIGSEGV</signame>
+  <sicode>1</sicode>
+  <event>Access not within mapped region</event>
+  <siaddr>0x8</siaddr>
+  <stack>
+    <frame>
+      <ip>0x10A818</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>TreeNode::Addleft(int)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>Node.cpp</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10AD46</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>TreeNode::DiffNode()</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>Node.cpp</file>
+      <line>96</line>
+    </frame>
+    <frame>
+      <ip>0x10A9FB</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>TreeNode::DiffNode()</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>Node.cpp</file>
+      <line>62</line>
+    </frame>
+    <frame>
+      <ip>0x109D3B</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>main</fn>
+      <dir>/home/aleksey/c++/calculate</dir>
+      <file>main.cpp</file>
+      <line>14</line>
+    </frame>
+  </stack>
+</fatal_signal>
+
 
 <status>
   <state>FINISHED</state>
-  <time>00:00:00:00.946 </time>
+  <time>00:00:00:01.124 </time>
 </status>
 
 <error>
-  <unique>0x9</unique>
+  <unique>0xe</unique>
   <tid>1</tid>
   <kind>Leak_DefinitelyLost</kind>
   <xwhat>
-    <text>14 bytes in 1 blocks are definitely lost in loss record 1 of 1</text>
-    <leakedbytes>14</leakedbytes>
+    <text>22 bytes in 1 blocks are definitely lost in loss record 1 of 61</text>
+    <leakedbytes>22</leakedbytes>
     <leakedblocks>1</leakedblocks>
   </xwhat>
   <stack>
@@ -476,23 +577,23 @@
       <fn>calloc</fn>
     </frame>
     <frame>
-      <ip>0x10ADC4</ip>
+      <ip>0x10B9CB</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>ReadFile(char const*, unsigned long*, char const*)</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
       <file>WorkFile.cpp</file>
-      <line>74</line>
+      <line>68</line>
     </frame>
     <frame>
-      <ip>0x109F24</ip>
+      <ip>0x10A262</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>CalcTree::ReadGraphFile(char const*)</fn>
       <dir>/home/aleksey/c++/calculate/src</dir>
       <file>CalcTree.cpp</file>
-      <line>93</line>
+      <line>109</line>
     </frame>
     <frame>
-      <ip>0x109B03</ip>
+      <ip>0x109CD3</ip>
       <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
       <fn>main</fn>
       <dir>/home/aleksey/c++/calculate</dir>
@@ -502,25 +603,121 @@
   </stack>
 </error>
 
+<error>
+  <unique>0x49</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>24 bytes in 1 blocks are definitely lost in loss record 60 of 61</text>
+    <leakedbytes>24</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C3017F</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>operator new(unsigned long)</fn>
+    </frame>
+    <frame>
+      <ip>0x10A7F3</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>TreeNode::Addleft(int)</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>Node.cpp</file>
+      <line>18</line>
+    </frame>
+    <frame>
+      <ip>0x10AD46</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>TreeNode::DiffNode()</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>Node.cpp</file>
+      <line>96</line>
+    </frame>
+    <frame>
+      <ip>0x10A9FB</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>TreeNode::DiffNode()</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>Node.cpp</file>
+      <line>62</line>
+    </frame>
+    <frame>
+      <ip>0x109D3B</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>main</fn>
+      <dir>/home/aleksey/c++/calculate</dir>
+      <file>main.cpp</file>
+      <line>14</line>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x4a</unique>
+  <tid>1</tid>
+  <kind>Leak_DefinitelyLost</kind>
+  <xwhat>
+    <text>216 (24 direct, 192 indirect) bytes in 1 blocks are definitely lost in loss record 61 of 61</text>
+    <leakedbytes>216</leakedbytes>
+    <leakedblocks>1</leakedblocks>
+  </xwhat>
+  <stack>
+    <frame>
+      <ip>0x4C3017F</ip>
+      <obj>/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>operator new(unsigned long)</fn>
+    </frame>
+    <frame>
+      <ip>0x10AB4C</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>TreeNode::DiffNode()</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>Node.cpp</file>
+      <line>85</line>
+    </frame>
+    <frame>
+      <ip>0x10A9FB</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>TreeNode::DiffNode()</fn>
+      <dir>/home/aleksey/c++/calculate/src</dir>
+      <file>Node.cpp</file>
+      <line>62</line>
+    </frame>
+    <frame>
+      <ip>0x109D3B</ip>
+      <obj>/home/aleksey/c++/calculate/bin/Debug/calculate</obj>
+      <fn>main</fn>
+      <dir>/home/aleksey/c++/calculate</dir>
+      <file>main.cpp</file>
+      <line>14</line>
+    </frame>
+  </stack>
+</error>
+
 <errorcounts>
   <pair>
     <count>1</count>
-    <unique>0x8</unique>
+    <unique>0xd</unique>
   </pair>
   <pair>
     <count>1</count>
+    <unique>0xc</unique>
+  </pair>
+  <pair>
+    <count>2</count>
     <unique>0x7</unique>
   </pair>
   <pair>
-    <count>1</count>
+    <count>2</count>
     <unique>0x6</unique>
   </pair>
   <pair>
-    <count>3</count>
+    <count>4</count>
     <unique>0x1</unique>
   </pair>
   <pair>
-    <count>3</count>
+    <count>4</count>
     <unique>0x0</unique>
   </pair>
 </errorcounts>

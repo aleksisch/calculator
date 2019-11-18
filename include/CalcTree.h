@@ -3,9 +3,9 @@
 
 struct TreeNode
 {
-    TreeNode(const int num = 0, TreeNode* left_t = nullptr, TreeNode* right_t = nullptr, bool oper = 0) :
+    TreeNode(const int num = 0, int type_node_t = VALUE, TreeNode* left_t = nullptr, TreeNode* right_t = nullptr) :
         number(num),
-        type_node(oper),
+        type_node(type_node_t),
         left_child(left_t),
         right_child(right_t)
     {
@@ -17,6 +17,13 @@ struct TreeNode
     int type_node;
     TreeNode* left_child;
     TreeNode* right_child;
+
+    void Addright(TreeNode* to_add);
+    void Addright(int new_elem);
+
+    void Addleft (TreeNode* to_add);
+    void Addleft (int new_elem);
+
 };
 
 class CalcTree
@@ -36,6 +43,10 @@ class CalcTree
         int GetResult(TreeNode* current = nullptr);
 
         TreeNode* GetHead();
+
+        void SetHead(TreeNode* tmp_node);
+
+        int GetArgument(char** ptr_on_text, int* tmp_number, TreeNode* current);
 
     private:
 

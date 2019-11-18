@@ -25,6 +25,8 @@ enum Operands
     LN,
     TAN,
     UNKNOWN_OPERATION,
+    POW,
+    VAR,
 };
 
 enum Return
@@ -38,13 +40,14 @@ enum Return
     FUNC,
     VALUE,
     VARIABLE,
+    OPERATION,
 };
 
 #include "WorkFile.h"
 #include "CalcTree.h"
 
 
-int StrCmdToNum(char* tmp_str, bool* is_func);
+int StrCmdToNum(char* tmp_str, int* type_cmd);
 
 const char* NodeDataToStr(TreeNode* current);
 

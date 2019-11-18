@@ -9,10 +9,10 @@ int FirstWordFromText(char** ptr_on_text, int* tmp_num)
     char tmp_str[STR_LENGTH] = {0};
 
     int read_var = sscanf(*ptr_on_text, "%[0-9.,]%n", tmp_str, &readed);
-
+    printf("%d", read_var);
     if (read_var == 0)
     {
-        int read_str = sscanf(*ptr_on_text, "%[^0-9().,]%n", tmp_str, &readed);
+        int read_str = sscanf(*ptr_on_text, "%[^0-9().,x]%n", tmp_str, &readed);
 
         if (read_str == 0)
         {
@@ -24,21 +24,19 @@ int FirstWordFromText(char** ptr_on_text, int* tmp_num)
         {
             printf("read str %s\n", tmp_str);
             (*ptr_on_text) += readed;
-            bool is_func = false;
-            *tmp_num = StrCmdToNum(tmp_str, &is_func);
+            int type_cmd = VALUE;
+            *tmp_num = StrCmdToNum(tmp_str, &type_cmd);
 
-            if (is_func)
-                return FUNC;
-            else
-                return OK;
+            return type_cmd;
         }
     }
 
     else
     {
+        printf("OOOOOOOOO%s", tmp_str);
         *tmp_num = std::stoi(tmp_str);
         (*ptr_on_text) += readed;
-        return OK;
+        return VALUE;
     }
 }
 

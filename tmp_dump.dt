@@ -1,52 +1,162 @@
 digraph G{ 
-tree_node0x55996abe6e70 [label = "+"];
-tree_node0x55996abe74d0 [label = "1"];
+tree_node0x55c6e7d73630 [label = "+"];
+tree_node0x55c6e7d73650 [label = "0"];
 
-tree_node0x55996abe6e70->tree_node0x55996abe74d0
+tree_node0x55c6e7d73630->tree_node0x55c6e7d73650
 
-tree_node0x55996abe6e70 [label = "+"];
-tree_node0x55996abe74f0 [label = "+"];
+tree_node0x55c6e7d73630 [label = "+"];
+tree_node0x55c6e7d73670 [label = "/"];
 
-tree_node0x55996abe6e70->tree_node0x55996abe74f0
+tree_node0x55c6e7d73630->tree_node0x55c6e7d73670
 
-tree_node0x55996abe74f0 [label = "+"];
-tree_node0x55996abe7510 [label = "*"];
+tree_node0x55c6e7d73670 [label = "/"];
+tree_node0x55c6e7d73690 [label = "-"];
 
-tree_node0x55996abe74f0->tree_node0x55996abe7510
+tree_node0x55c6e7d73670->tree_node0x55c6e7d73690
 
-tree_node0x55996abe7510 [label = "*"];
-tree_node0x55996abe7530 [label = "3"];
+tree_node0x55c6e7d73690 [label = "-"];
+tree_node0x55c6e7d73870 [label = "*"];
 
-tree_node0x55996abe7510->tree_node0x55996abe7530
+tree_node0x55c6e7d73690->tree_node0x55c6e7d73870
 
-tree_node0x55996abe7510 [label = "*"];
-tree_node0x55996abe7550 [label = "/"];
+tree_node0x55c6e7d73870 [label = "*"];
+tree_node0x55c6e7d736b0 [label = "+"];
 
-tree_node0x55996abe7510->tree_node0x55996abe7550
+tree_node0x55c6e7d73870->tree_node0x55c6e7d736b0
 
-tree_node0x55996abe7550 [label = "/"];
-tree_node0x55996abe7570 [label = "6"];
+tree_node0x55c6e7d736b0 [label = "+"];
+tree_node0x55c6e7d73750 [label = "*"];
 
-tree_node0x55996abe7550->tree_node0x55996abe7570
+tree_node0x55c6e7d736b0->tree_node0x55c6e7d73750
 
-tree_node0x55996abe7550 [label = "/"];
-tree_node0x55996abe7590 [label = "2"];
+tree_node0x55c6e7d73750 [label = "*"];
+tree_node0x55c6e7d736d0 [label = "0"];
 
-tree_node0x55996abe7550->tree_node0x55996abe7590
+tree_node0x55c6e7d73750->tree_node0x55c6e7d736d0
 
-tree_node0x55996abe74f0 [label = "+"];
-tree_node0x55996abe75b0 [label = "sin"];
+tree_node0x55c6e7d73750 [label = "*"];
+tree_node0x55c6e7d736f0 [label = "+"];
 
-tree_node0x55996abe74f0->tree_node0x55996abe75b0
+tree_node0x55c6e7d73750->tree_node0x55c6e7d736f0
 
-tree_node0x55996abe75b0 [label = "sin"];
-tree_node0x55996abe75d0 [label = "0"];
+tree_node0x55c6e7d736f0 [label = "+"];
+tree_node0x55c6e7d73710 [label = "6"];
 
-tree_node0x55996abe75b0->tree_node0x55996abe75d0
+tree_node0x55c6e7d736f0->tree_node0x55c6e7d73710
 
-tree_node0x55996abe75b0 [label = "sin"];
-tree_node0x55996abe75f0 [label = "3"];
+tree_node0x55c6e7d736f0 [label = "+"];
+tree_node0x55c6e7d73730 [label = "2"];
 
-tree_node0x55996abe75b0->tree_node0x55996abe75f0
+tree_node0x55c6e7d736f0->tree_node0x55c6e7d73730
+
+tree_node0x55c6e7d736b0 [label = "+"];
+tree_node0x55c6e7d737f0 [label = "*"];
+
+tree_node0x55c6e7d736b0->tree_node0x55c6e7d737f0
+
+tree_node0x55c6e7d737f0 [label = "*"];
+tree_node0x55c6e7d73770 [label = "+"];
+
+tree_node0x55c6e7d737f0->tree_node0x55c6e7d73770
+
+tree_node0x55c6e7d73770 [label = "+"];
+tree_node0x55c6e7d73790 [label = "0"];
+
+tree_node0x55c6e7d73770->tree_node0x55c6e7d73790
+
+tree_node0x55c6e7d73770 [label = "+"];
+tree_node0x55c6e7d737b0 [label = "0"];
+
+tree_node0x55c6e7d73770->tree_node0x55c6e7d737b0
+
+tree_node0x55c6e7d737f0 [label = "*"];
+tree_node0x55c6e7d737d0 [label = "3"];
+
+tree_node0x55c6e7d737f0->tree_node0x55c6e7d737d0
+
+tree_node0x55c6e7d73870 [label = "*"];
+tree_node0x55c6e7d73810 [label = "+"];
+
+tree_node0x55c6e7d73870->tree_node0x55c6e7d73810
+
+tree_node0x55c6e7d73810 [label = "+"];
+tree_node0x55c6e7d73830 [label = "5"];
+
+tree_node0x55c6e7d73810->tree_node0x55c6e7d73830
+
+tree_node0x55c6e7d73810 [label = "+"];
+tree_node0x55c6e7d73850 [label = "3"];
+
+tree_node0x55c6e7d73810->tree_node0x55c6e7d73850
+
+tree_node0x55c6e7d73690 [label = "-"];
+tree_node0x55c6e7d73990 [label = "*"];
+
+tree_node0x55c6e7d73690->tree_node0x55c6e7d73990
+
+tree_node0x55c6e7d73990 [label = "*"];
+tree_node0x55c6e7d73890 [label = "*"];
+
+tree_node0x55c6e7d73990->tree_node0x55c6e7d73890
+
+tree_node0x55c6e7d73890 [label = "*"];
+tree_node0x55c6e7d738b0 [label = "3"];
+
+tree_node0x55c6e7d73890->tree_node0x55c6e7d738b0
+
+tree_node0x55c6e7d73890 [label = "*"];
+tree_node0x55c6e7d738d0 [label = "+"];
+
+tree_node0x55c6e7d73890->tree_node0x55c6e7d738d0
+
+tree_node0x55c6e7d738d0 [label = "+"];
+tree_node0x55c6e7d738f0 [label = "6"];
+
+tree_node0x55c6e7d738d0->tree_node0x55c6e7d738f0
+
+tree_node0x55c6e7d738d0 [label = "+"];
+tree_node0x55c6e7d73910 [label = "2"];
+
+tree_node0x55c6e7d738d0->tree_node0x55c6e7d73910
+
+tree_node0x55c6e7d73990 [label = "*"];
+tree_node0x55c6e7d73930 [label = "+"];
+
+tree_node0x55c6e7d73990->tree_node0x55c6e7d73930
+
+tree_node0x55c6e7d73930 [label = "+"];
+tree_node0x55c6e7d73950 [label = "0"];
+
+tree_node0x55c6e7d73930->tree_node0x55c6e7d73950
+
+tree_node0x55c6e7d73930 [label = "+"];
+tree_node0x55c6e7d73970 [label = "0"];
+
+tree_node0x55c6e7d73930->tree_node0x55c6e7d73970
+
+tree_node0x55c6e7d73670 [label = "/"];
+tree_node0x55c6e7d739b0 [label = "unknown cmd"];
+
+tree_node0x55c6e7d73670->tree_node0x55c6e7d739b0
+
+tree_node0x55c6e7d739b0 [label = "unknown cmd"];
+tree_node0x55c6e7d739d0 [label = "2"];
+
+tree_node0x55c6e7d739b0->tree_node0x55c6e7d739d0
+
+tree_node0x55c6e7d739b0 [label = "unknown cmd"];
+tree_node0x55c6e7d735b0 [label = "+"];
+
+tree_node0x55c6e7d739b0->tree_node0x55c6e7d735b0
+
+tree_node0x55c6e7d735b0 [label = "+"];
+tree_node0x55c6e7d735d0 [label = "5"];
+
+tree_node0x55c6e7d735b0->tree_node0x55c6e7d735d0
+
+tree_node0x55c6e7d735b0 [label = "+"];
+tree_node0x55c6e7d735f0 [label = "3"];
+
+tree_node0x55c6e7d735b0->tree_node0x55c6e7d735f0
 
 }
