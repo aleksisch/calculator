@@ -21,6 +21,8 @@ class Parser
 
         static int GetT(const char*& str);
 
+        static int GetP(const char*& str);
+
         static int GetN(const char*& str);
 };
 
@@ -76,7 +78,7 @@ int Parser::GetE(const char*& str)
 
 int Parser::GetT(const char*& str)
 {
-    int res = GetN(str);
+    int res = GetP(str);
 
     while (*str == '*' || *str == '/')
     {
@@ -84,10 +86,10 @@ int Parser::GetT(const char*& str)
         str++;
 
         if (last_symb == '*')
-            res *= GetN(str);
+            res *= GetP(str);
 
         else if (last_symb == '/')
-            res /= GetN(str);
+            res /= GetP(str);
     }
 
     printf("T %d %c\n", res, *str);
@@ -112,5 +114,21 @@ int Parser::GetN(const char*& str)
     return res;
 }
 
+int Parser::GetP(const char*& str)
+{
+    int res = 0;
+    if (*str == '(')
+    {
+        res = GetE(++str);
+        if (*str != ')')
+            printf("Error occured, no ')'");
+        else str++;
+    }
+
+    else
+        res = GetN(str);
+
+    return res;
+}
 
 #endif // PARSER_H

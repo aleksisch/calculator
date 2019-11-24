@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1574517587 source:/home/aleksey/c++/recursive_descent/recursive/main.cpp
+	<iostream>
+	"include/Parser.h"
+
+1574627313 /home/aleksey/c++/recursive_descent/recursive/include/Parser.h
+	"ReadFile.h"
+
+1574516290 /home/aleksey/c++/recursive_descent/recursive/include/ReadFile.h
+
