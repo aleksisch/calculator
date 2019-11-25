@@ -107,7 +107,6 @@ TreeNode<type_t>* Parser<type_t>::GetT(const char*& str)
         free(tmp);
     }
 
-    printf("T %d %c\n", res, *str);
     return res;
 }
 
@@ -135,6 +134,7 @@ TreeNode<type_t>* Parser<type_t>::GetP(const char*& str)
     {
         str += cmd_len;
         res->Addright(GetP(str));
+        res->Addleft();
     }
 
     else

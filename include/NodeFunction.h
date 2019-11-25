@@ -5,12 +5,10 @@
 template <typename type_t>
 void TreeNode<type_t>::FreeTree()
 {
-    assert (this);
-    if (this->left_child != nullptr)
-        this->left_child->FreeTree();
+    if (this == nullptr) return;
 
-    if (this->right_child != nullptr)
-        this->right_child->FreeTree();
+    this->left_child-> FreeTree();
+    this->right_child->FreeTree();
 
     delete this;
 }
@@ -47,9 +45,9 @@ type_t TreeNode<type_t>::GetResult(type_t variable_value)
 }
 
 template <typename type_t>
-void TreeNode<type_t>::Addleft(type_t new_el, int type)
+void TreeNode<type_t>::Addleft(type_t new_el, int type, TreeNode<type_t>* left, TreeNode<type_t>* right)
 {
-    this->left_child = new TreeNode<type_t>(new_el, type);
+    this->left_child = new TreeNode<type_t>(new_el, type, left, right);
 }
 
 template <typename type_t>
@@ -59,9 +57,9 @@ void TreeNode<type_t>::Addleft(TreeNode<type_t>* to_add)
 }
 
 template <typename type_t>
-void TreeNode<type_t>::Addright(type_t new_el, int type)
+void TreeNode<type_t>::Addright(type_t new_el, int type, TreeNode<type_t>* left, TreeNode<type_t>* right)
 {
-    this->right_child = new TreeNode<type_t>(new_el, type);
+    this->right_child = new TreeNode<type_t>(new_el, type, left, right);
 }
 
 template <typename type_t>
@@ -71,32 +69,37 @@ void TreeNode<type_t>::Addright(TreeNode<type_t>* to_add)
 }
 
 template <typename type_t>
-void TreeNode<type_t>::UpdateNode(type_t number, int type)
+void TreeNode<type_t>::UpdateNode(type_t number, int type, TreeNode<type_t>* left, TreeNode<type_t>* right)
 {
-    this->number = number;
+    this->UpdateNode(number, type);
 
-    if (type != UNKNOWN_OPERATION)
-        this->type_node = type;
+    if (left  == nullptr) left  = new TreeNode<type_t>;
+    if (right == nullptr) right = new TreeNode<type_t>;
+
+    this->UpdateNode(left, right);
 }
 
 template <typename type_t>
-void TreeNode<type_t>::UpdateNode(type_t number, int type, TreeNode<type_t>* left, TreeNode<type_t>* right)
+void TreeNode<type_t>::UpdateNode(TreeNode<type_t>* left, TreeNode<type_t>* right)
+{
+    this->left_child->FreeTree();
+    this->right_child->FreeTree();
+
+    this->left_child  = left;
+    this->right_child = right;
+}
+
+template <typename type_t>
+void TreeNode<type_t>::UpdateNode(type_t number, int type)
 {
     this->number = number;
-
     this->type_node = type;
-
-    FreeTree(this->left_child);
-    FreeTree(this->right_child);
-
-    this->left_child = left;
-    this->right_child = right;
 }
 
 template <typename type_t>
 void TreeNode<type_t>::NodeToFile(FILE* output_file)
 {
-    assert(this || output_file);
+    assert(this && output_file);
 
     if (this->type_node != VALUE)
         this->WriteGraph(output_file);
@@ -198,11 +201,10 @@ void TreeNode<type_t>::WriteToLatex(FILE* output_file, bool is_first, const char
 template <typename type_t>
 TreeNode<type_t>* TreeNode<type_t>::Simplify()
 {
-    assert(this && this->left_child && this->right_child);
+    if (this == nullptr || this->left_child == nullptr || this->right_child == nullptr)
+        return this;
 
-    type_t eps = 0.00001;
-
-    printf("eps is %d\n", eps);
+    const type_t eps = 0.00001;
 
     TreeNode*& left  = this->left_child;
     TreeNode*& right = this->right_child;
@@ -212,6 +214,21 @@ TreeNode<type_t>* TreeNode<type_t>::Simplify()
 
     if (right->type_node != VALUE && right->type_node != VARIABLE)
         right = right->Simplify();
+
+    if (left->type_node == VALUE && right->type_node == VALUE)
+    {
+        this->number = ExecuteOperation(left->number, right->number, this->number);
+
+        this->type_node = VALUE;
+
+        delete left;
+        delete right;
+
+        this->left_child = nullptr;
+        this->right_child = nullptr;
+
+        return this;
+    }
 
     if (MyRound(this->number) == MUL && this->type_node == OPERATION)
     {
@@ -272,15 +289,16 @@ template <typename type_t>
 void TreeNode<type_t>::WriteDump(FILE* file)
 {
     assert (this);
-    if (this->left_child != nullptr)
+
+    if (this->left_child != nullptr && this->type_node != FUNC)
     {
+
         fprintf(file, "tree_node%p [label = \"%s\"];\n", &(this->number), NodeDataToStr(this));
         fprintf(file, "tree_node%p [label = \"%s\"];\n\n", &(this->left_child->number),
                                                              NodeDataToStr(this->left_child));
         fprintf(file, "tree_node%p->tree_node%p\n\n", &(this->number), &(this->left_child->number));
 
-        if (this->left_child->type_node != FUNC)       //in func in left_child zero
-            this->left_child->WriteDump(file);
+        this->left_child->WriteDump(file);
     }
 
     if (this->right_child != nullptr)

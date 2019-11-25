@@ -25,8 +25,6 @@ class CalcTree
 
     private:
 
-        int GetArgument(char** ptr_on_text, type_t* tmp_number, TreeNode<type_t>*& current);
-
         void FillGraph(TreeNode<type_t>* current, char** ptr_on_text);
 
         void WriteDump(FILE* file);

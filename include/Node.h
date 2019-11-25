@@ -23,17 +23,18 @@ class TreeNode
 
         TreeNode<type_t>* DiffNode(bool is_first = true);
 
-        void UpdateNode(type_t number = 0, int type = UNKNOWN_OPERATION);
-
         void UpdateNode(type_t number, int type, TreeNode<type_t>* left, TreeNode<type_t>* right);
+        void UpdateNode(type_t number, int type);
+
+        void UpdateNode(TreeNode<type_t>* left, TreeNode<type_t>* right);
 
         void Addright(TreeNode<type_t>* to_add);
 
-        void Addright(type_t new_elem = 0, int type = VALUE);
+        void Addright(type_t new_elem = 0, int type = VALUE, TreeNode<type_t>* left = nullptr, TreeNode<type_t>* right = nullptr);
 
         void Addleft (TreeNode<type_t>* to_add);
 
-        void Addleft (type_t new_elem = 0, int type = VALUE);
+        void Addleft (type_t new_elem = 0, int type = VALUE, TreeNode<type_t>* left = nullptr, TreeNode<type_t>* right = nullptr);
 
         void WriteGraph(FILE* output_file, bool is_first = false);
 

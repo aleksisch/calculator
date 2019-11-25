@@ -2,7 +2,7 @@
 #define MAINHEADER_H_INCLUDED
 
 #include <string>
-#include <cstring>
+#include <string.h>
 #include <stdio.h>
 #include <math.h>
 #include <assert.h>
@@ -26,11 +26,9 @@ const char* NodeDataToStr(TreeNode<type_t>* current);
 
 FILE* BeginLatexFile(const char* output);
 
-void CloseLatexFile(FILE* file);
+void CloseLatexFile(FILE*& file);
 
 void PrintError(int err_code, const char* function_name);
-
-#include "Operations.h"
 
 #include "Node.h"
 

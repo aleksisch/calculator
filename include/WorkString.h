@@ -4,9 +4,9 @@
 #include "../include/MainHeader.h"
 
 template <typename type_t>
-type_t ExecuteOperation(type_t first, type_t second, int operands)
+type_t ExecuteOperation(type_t first, type_t second, type_t operands)
 {
-    switch (operands)
+    switch (MyRound(operands))
     {
         case ADD:
             return first + second;
@@ -103,11 +103,21 @@ FILE* BeginLatexFile(const char* output)
     return file;
 }
 
-void CloseLatexFile(FILE* file)
+void CloseLatexFile(FILE*& file)
 {
+    if (file == nullptr) return;
+
     fprintf(file, "$$\n\\end{document}");
+
     fclose(file);
-    printf("CLODES");
+
+    char s[STR_LENGTH] = "";
+
+    sprintf(s, "pdflatex %s > /dev/null ", log_filename);
+
+    system(s);
+
+    file = nullptr;
 }
 
 char* ReadFile (const char* str, size_t *size, const char* chmod)
