@@ -1,134 +1,199 @@
 #ifndef PARSER_H
 #define PARSER_H
 
-#include "ReadFile.h"
+#include "MainHeader.h"
 
+template <typename type_t>
 class Parser
 {
     public:
-        Parser() {}
+        Parser()  {}
         ~Parser() {}
 
-        static int CountFile(const char* file = "input.txt");
-
-        static int CountString(const char* str = "");
+        static TreeNode<type_t>* CreateTree(const char* file = "input.txt");
 
     private:
 
-        static int GetG(const char*& str);
+        static TreeNode<type_t>* GetG(const char*& str);
 
-        static int GetE(const char*& str);
+        static TreeNode<type_t>* GetE(const char*& str);
 
-        static int GetT(const char*& str);
+        static TreeNode<type_t>* GetT(const char*& str);
 
-        static int GetP(const char*& str);
+        static TreeNode<type_t>* GetP(const char*& str);
 
-        static int GetN(const char*& str);
+        static TreeNode<type_t>* GetLeaf(const char*& str);
+
+        static type_t GetN(const char*& str);
 };
 
-int Parser::CountFile(const char* file)
+template <typename type_t>
+TreeNode<type_t>* Parser<type_t>::CreateTree(const char* filename)
 {
     size_t size = 0;
 
-    char* text = ReadFile(file, &size, "r");
+    const char* text = ReadFile(filename, &size, "r");
 
-    int res = CountString(text);
+    BeginLatexFile(log_filename);
 
-    return res;
+    TreeNode<type_t>* result = GetG(text);
+
+    fprintf(CalcTree<type_t>::log_file, "I \\quad read: \\quad ");
+
+    result->LogToLatex(CalcTree<type_t>::log_file);
+
+    return result;
 }
 
-int Parser::CountString(const char* str)
+template <typename type_t>
+TreeNode<type_t>* Parser<type_t>::GetG(const char*& str)
 {
-    return GetG(str);
-}
+    TreeNode<type_t>* res = GetE(str);
 
-int Parser::GetG(const char*& str)
-{
-    int res = GetE(str);
-
-    return res;
-    if (*str == 10) //end of line in linux
+    if (*str == 10) //end of file in linux
         return res;
+
     else
     {
         printf("Error occured! Not all file was readed");
-        return -1;
+        return nullptr;
     }
 }
 
-int Parser::GetE(const char*& str)
+template <typename type_t>
+TreeNode<type_t>* Parser<type_t>::GetE(const char*& str)
 {
-    int res = GetT(str);
+    TreeNode<type_t>* res = new TreeNode<type_t>();
 
-    while (*str == '+' || *str == '-')
+    res->Addleft(GetT(str));
+
+    if (*str == '+' || *str == '-')
     {
-        char last_symb = *str;
-        str++;
+        str += StrCmdToNum(str, &(res->number), &(res->type_node));
 
-        if (last_symb == '+')
-            res += GetT(str);
-
-        else if (last_symb == '-')
-            res -= GetT(str);
+        res->Addright(GetE(str));
     }
 
-    printf("%d %c", res, *str);
+    else
+    {
+        TreeNode<type_t>* tmp = res;
+        res = res->left_child;
+        free(tmp);
+    }
+
     return res;
 }
 
-int Parser::GetT(const char*& str)
+
+template <typename type_t>
+TreeNode<type_t>* Parser<type_t>::GetT(const char*& str)
 {
-    int res = GetP(str);
+    TreeNode<type_t>* res = new TreeNode<type_t>();
 
-    while (*str == '*' || *str == '/')
+    res->Addleft(GetP(str));
+
+    if (*str == '*' || *str == '/' || *str == '^')
     {
-        char last_symb = *str;
-        str++;
 
-        if (last_symb == '*')
-            res *= GetP(str);
+        str += StrCmdToNum(str, &(res->number), &(res->type_node));
 
-        else if (last_symb == '/')
-            res /= GetP(str);
+        res->Addright(GetT(str));
+    }
+
+    else
+    {
+        TreeNode<type_t>* tmp = res;
+        res = res->left_child;
+        free(tmp);
     }
 
     printf("T %d %c\n", res, *str);
     return res;
 }
 
-int Parser::GetN(const char*& str)
+template <typename type_t>
+TreeNode<type_t>* Parser<type_t>::GetP(const char*& str)
 {
-    int res = 0;
+    TreeNode<type_t>* res = nullptr;
 
-    char cur_char = (*str) - '0';
-
-    while (cur_char >= 0 && cur_char <= 9 )
-    {
-        res *= 10;
-        res += cur_char;
-        cur_char = (*(++str)) - '0';
-    }
-
-    printf("N %d %c\n", res, *str);
-
-    return res;
-}
-
-int Parser::GetP(const char*& str)
-{
-    int res = 0;
     if (*str == '(')
     {
         res = GetE(++str);
         if (*str != ')')
             printf("Error occured, no ')'");
+
         else str++;
+
+        return res;
+    }
+
+    res = new TreeNode<type_t>();
+
+    int cmd_len = StrCmdToNum(str, &(res->number), &(res->type_node));
+
+    if (cmd_len != 0 && res->type_node != VARIABLE)
+    {
+        str += cmd_len;
+        res->Addright(GetP(str));
     }
 
     else
-        res = GetN(str);
+    {
+        free(res);
+        res = GetLeaf(str);
+    }
 
     return res;
+}
+
+template <typename type_t>
+TreeNode<type_t>* Parser<type_t>::GetLeaf(const char*& str)
+{
+    if ((*str >= 'a' && *str <= 'z') ||
+        (*str >= 'A' && *str <= 'Z'))
+        return new TreeNode<type_t>(*(str++), VARIABLE);
+
+    else
+        return new TreeNode<type_t>(GetN(str), VALUE);
+
+}
+
+template <typename type_t>
+type_t Parser<type_t>::GetN(const char*& str)
+{
+    type_t res = 0;
+
+    char cur_char = (*str) - '0';
+
+    int read_comma = 0;
+
+
+    while ((cur_char >= 0 && cur_char <= 9) || cur_char == ',' - '0' || cur_char == '.' - '0')
+    {
+
+        if (cur_char == '.' - '0' || cur_char == ',' - '0') read_comma = 1;
+
+        else if (read_comma != 0)
+            res += cur_char / std::pow(10, read_comma++);
+
+        else
+        {
+            res *= 10;
+            res += cur_char;
+        }
+
+        cur_char = (*(++str)) - '0';
+    }
+
+    return res;
+}
+
+void SkipToBrace(char** ptr_on_text)
+{
+    while (**ptr_on_text == '\n' ||
+           **ptr_on_text == '\t' ||
+           **ptr_on_text == ' ')
+           (*ptr_on_text)++;
 }
 
 #endif // PARSER_H
