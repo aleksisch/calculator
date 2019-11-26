@@ -49,21 +49,21 @@ struct Operators
     char name[STR_LENGTH];
 };
 
-        const static Operators operation[] = {
-                                                {SUB, OPERATION, "-", },
-                                                {ADD, OPERATION, "+"},
-                                                {DIV, OPERATION, "/"},
-                                                {MUL, OPERATION, "*"},
-                                                {SIN, FUNC, "sin"},
-                                                {COS, FUNC, "cos"},
-                                                {LN, FUNC, "ln"},
-                                                {TAN, FUNC, "tan"},
-                                                {POW, OPERATION, "^"},
-                                                {VAR, VARIABLE, "x"},
-                                                {SINH, FUNC, "sinh"},
-                                                {COSH, FUNC, "cosh"},
-                                                {TANH, FUNC, "tanh"},
-                                             };
+const static Operators operation[] = {
+                                        {SUB, OPERATION, "-",},
+                                        {ADD, OPERATION, "+" },
+                                        {DIV, OPERATION, "/" },
+                                        {MUL, OPERATION, "*" },
+                                        {SIN, FUNC, "sin"    },
+                                        {COS, FUNC, "cos"    },
+                                        {LN, FUNC, "ln"      },
+                                        {TAN, FUNC, "tan"    },
+                                        {POW, OPERATION, "^" },
+                                        {VAR, VARIABLE, "x"  },
+                                        {SINH, FUNC, "sinh"  },
+                                        {COSH, FUNC, "cosh"  },
+                                        {TANH, FUNC, "tanh"  },
+                                     };
 
 
 #endif // CONSTANTS_H_INCLUDED

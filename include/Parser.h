@@ -3,6 +3,8 @@
 
 #include "MainHeader.h"
 
+void SkipToBrace(const char*& ptr_on_text);
+
 template <typename type_t>
 class Parser
 {
@@ -50,6 +52,8 @@ TreeNode<type_t>* Parser<type_t>::GetG(const char*& str)
 {
     TreeNode<type_t>* res = GetE(str);
 
+    SkipToBrace(str);
+
     if (*str == 10) //end of file in linux
         return res;
 
@@ -67,9 +71,13 @@ TreeNode<type_t>* Parser<type_t>::GetE(const char*& str)
 
     res->Addleft(GetT(str));
 
+    SkipToBrace(str);
+
     if (*str == '+' || *str == '-')
     {
         str += StrCmdToNum(str, &(res->number), &(res->type_node));
+
+        SkipToBrace(str);
 
         res->Addright(GetE(str));
     }
@@ -90,7 +98,11 @@ TreeNode<type_t>* Parser<type_t>::GetT(const char*& str)
 {
     TreeNode<type_t>* res = new TreeNode<type_t>();
 
+    SkipToBrace(str);
+
     res->Addleft(GetP(str));
+
+    SkipToBrace(str);
 
     if (*str == '*' || *str == '/' || *str == '^')
     {
@@ -115,18 +127,27 @@ TreeNode<type_t>* Parser<type_t>::GetP(const char*& str)
 {
     TreeNode<type_t>* res = nullptr;
 
+    SkipToBrace(str);
+
     if (*str == '(')
     {
+        SkipToBrace(str);
         res = GetE(++str);
         if (*str != ')')
             printf("Error occured, no ')'");
 
-        else str++;
+        else
+        {
+            SkipToBrace(str);
+            str++;
+        }
 
         return res;
     }
 
     res = new TreeNode<type_t>();
+
+    SkipToBrace(str);
 
     int cmd_len = StrCmdToNum(str, &(res->number), &(res->type_node));
 
@@ -149,6 +170,8 @@ TreeNode<type_t>* Parser<type_t>::GetP(const char*& str)
 template <typename type_t>
 TreeNode<type_t>* Parser<type_t>::GetLeaf(const char*& str)
 {
+    SkipToBrace(str);
+
     if ((*str >= 'a' && *str <= 'z') ||
         (*str >= 'A' && *str <= 'Z'))
         return new TreeNode<type_t>(*(str++), VARIABLE);
@@ -161,12 +184,13 @@ TreeNode<type_t>* Parser<type_t>::GetLeaf(const char*& str)
 template <typename type_t>
 type_t Parser<type_t>::GetN(const char*& str)
 {
+    SkipToBrace(str);
+
     type_t res = 0;
 
     char cur_char = (*str) - '0';
 
     int read_comma = 0;
-
 
     while ((cur_char >= 0 && cur_char <= 9) || cur_char == ',' - '0' || cur_char == '.' - '0')
     {
@@ -183,17 +207,17 @@ type_t Parser<type_t>::GetN(const char*& str)
         }
 
         cur_char = (*(++str)) - '0';
+        SkipToBrace(str);
     }
 
     return res;
 }
 
-void SkipToBrace(char** ptr_on_text)
+void SkipToBrace(const char*& ptr_on_text)
 {
-    while (**ptr_on_text == '\n' ||
-           **ptr_on_text == '\t' ||
-           **ptr_on_text == ' ')
-           (*ptr_on_text)++;
+    while (*ptr_on_text == '\t' ||
+           *ptr_on_text == ' ' )
+            ptr_on_text++;
 }
 
 #endif // PARSER_H
