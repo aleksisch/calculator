@@ -44,20 +44,20 @@ int StrCmdToNum(const char* command, type_t* number, int* type_cmd)
 {
     for (int op = 0; op < NUM_OPER; op++)
 
-        if (strstr(command, operation[op].name) == command)
+        if (strstr(command, Operation<type_t>[op].name) == command)
         {
-            *type_cmd = operation[op].type;
+            *type_cmd = Operation<type_t>[op].type;
 
-            *number = operation[op].num;
+            *number = Operation<type_t>[op].num;
 
-            return strlen(operation[op].name);
+            return strlen(Operation<type_t>[op].name);
         }
 
     if ((*command >= 'a' && *command <= 'z') || (*command >= 'A' && *command <= 'Z'))
     {
         *type_cmd = VARIABLE;
         *number = *command;
-        return 1;       ///return current variable length (max 1)
+        return 1;       ///return variable length
     }
 
     return 0;
@@ -70,8 +70,8 @@ const char* NodeDataToStr(TreeNode<type_t>* current)
     if (current->right_child != nullptr)    ///keep func arg in right child
     {
         for (int op = 0; op < NUM_OPER; op++)
-            if (MyRound(current->number) == operation[op].num)
-                return operation[op].name;
+            if (MyRound(current->number) == Operation<type_t>[op].num)
+                return Operation<type_t>[op].name;
         return "Unknown cmd";
     }
 

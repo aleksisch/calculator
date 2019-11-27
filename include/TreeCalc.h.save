@@ -1,0 +1,102 @@
+#ifndef TREECALC_H
+#define TREECALC_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "constants.h"
+#include "WorkFile.h"
+
+struct TreeNode
+{
+    int number;
+    bool is_operator;
+    TreeNode* left_child;
+    TreeNode* right_child;
+
+    TreeNode(const int num, bool oper = false ) :
+        is_number(t_num);
+        is_operator(oper);
+        left_child(nullptr),
+        right_child(nullptr)
+    {
+    }
+};
+
+class TreeCalc
+{
+    public:
+        TreeCalc();
+        ~TreeCalc();
+        
+        int GraphToDot();
+
+        int ReadGraphFile(const char* input_file = input_graph_file);
+
+        int WriteGraphFile(const char* output_file = output_graph_file);
+        
+    private:
+    
+        int NodeToFile(TreeNode* current_node, FILE* output_file);
+        
+        int FillGraph(TreeNode* current, char** ptr_on_text);
+    
+        TreeNode* head_node;
+        
+        int WriteDump(FILE* file, TreeNode* current = nullptr);
+
+        void FreeTree(TreeNode* current);
+
+        int WriteGraph(TreeNode* current_node, FILE* output_file);
+
+};
+
+#endif // TREECALC_H
+#ifndef AKINATORTREE_H
+#define AKINATORTREE_H
+
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "constants.h"
+#include "WorkFile.h"
+
+class AkinatorTree
+{
+    public:
+
+        AkinatorTree();
+        ~AkinatorTree();
+
+        int GraphToDot();
+
+        int Play();
+
+        int PlayAkinator(TreeNode* current = nullptr);
+
+        int ReadGraphFile(const char* input_file = input_graph_file);
+
+        int WriteGraphFile(const char* output_file = output_graph_file);
+
+        int CompareNode(const char* first_name, const char* second_name);
+
+        int ObjectInfo(const char* name);
+
+    private:
+
+        int FillGraph(TreeNode* current, char** ptr_on_text);
+
+        TreeNode* head_node;
+
+        int NodeToFile(TreeNode* current_node, FILE* output_file);
+
+        int FillAnswer(TreeNode* cur_node, const char* left, const char* right, const char* question);
+
+        int WriteDump(FILE* file, TreeNode* current = nullptr);
+
+        void FreeTree(TreeNode* current);
+
+        int GetNodeInfo(TreeNode* current, const char* name, Question* arr_q, int counter = 0);
+
+        int WriteGraph(TreeNode* current_node, FILE* output_file);
+};
+#endif // AKINATORTREE_H

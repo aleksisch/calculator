@@ -17,6 +17,7 @@ CalcTree<type_t>::~CalcTree()
     this->head_node->FreeTree();
 }
 
+
 template <typename type_t>
 type_t CalcTree<type_t>::GetResult(type_t variable_value)
 {

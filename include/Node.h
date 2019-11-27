@@ -54,6 +54,19 @@ class TreeNode
 
         void LogToLatex(FILE* output_file, const char* filename = output_latex);
 
+        TreeNode<type_t>* DiffSub();
+        TreeNode<type_t>* DiffAdd();
+        TreeNode<type_t>* DiffMul();
+        TreeNode<type_t>* DiffDiv();
+        TreeNode<type_t>* DiffPow();
+        TreeNode<type_t>* DiffSin();
+        TreeNode<type_t>* DiffCos();
+        TreeNode<type_t>* DiffTan();
+        TreeNode<type_t>* DiffLn();
+        TreeNode<type_t>* DiffSinh();
+        TreeNode<type_t>* DiffCosh();
+        TreeNode<type_t>* DiffTanh();
+
     private:
 
         void NodeToTex(FILE* output_file);

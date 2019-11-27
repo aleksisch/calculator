@@ -3,11 +3,10 @@
 
 int main()
 {
-
     CalcTree<double>* cur = new CalcTree<double>;
     CalcTree<double>* diff = new CalcTree<double>;
 
-    cur->head_node = Parser<double>::CreateTree("input.txt");
+    cur->head_node = Parser<double>::CreateTree();
 
     cur->GraphToDot();
 

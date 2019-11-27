@@ -1,100 +1,146 @@
 #ifndef DECLARE_FUNC
 #define DECLARE_FUNC
 
-TreeNode<type_t>* DiffSub();
-TreeNode<type_t>* DiffAdd();
-TreeNode<type_t>* DiffMul();
-TreeNode<type_t>* DiffDiv();
-TreeNode<type_t>* DiffPow();
-TreeNode<type_t>* DiffSin();
-TreeNode<type_t>* DiffCos();
-TreeNode<type_t>* DiffTan();
-TreeNode<type_t>* DiffLn();
-TreeNode<type_t>* DiffSinh();
-TreeNode<type_t>* DiffCosh();
-TreeNode<type_t>* DiffTanh();
-
-#else
-#ifndef BODY_FUNC
-#define BODY_FUNC
-
-#define left_diff this->left_child->Diff()
-#define right_diff this->right_child->Diff()
-
+#define left_diff  this->left_child->DiffNode(false)
+#define right_diff this->right_child->DiffNode(false)
 
 template <typename type_t>
 TreeNode<type_t>* TreeNode<type_t>::DiffSub()
 {
-    new_node = new
-    new_node->UpdateNode(left_diff, right_diff);
-
-    return new_node;
+    assert(this);
+    return new TreeNode<type_t>(this->number, this->type_node, left_diff, right_diff);
 }
 
 template <typename type_t>
 TreeNode<type_t>* TreeNode<type_t>::DiffAdd()
 {
-    return this;
+    assert(this);
+    return new TreeNode<type_t>(this->number, this->type_node, left_diff, right_diff);
 }
+
 template <typename type_t>
 TreeNode<type_t>* TreeNode<type_t>::DiffMul()
 {
-    return this;
+    assert(this);
+    TreeNode<type_t>* new_node = new TreeNode<type_t>(ADD, OPERATION);
+
+    new_node->Addleft (MUL, OPERATION, left_diff, this->right_child->Copy());
+    new_node->Addright(MUL, OPERATION, this->left_child->Copy(), right_diff);
+
+    return new_node;
 }
 
 template <typename type_t>
 TreeNode<type_t>* TreeNode<type_t>::DiffDiv()
 {
-    return this;
+    assert(this);
+    TreeNode<type_t>* new_node = new TreeNode<type_t>(this->number, this->type_node);
+
+    new_node->Addleft(SUB, OPERATION);
+    new_node->Addright(POW, OPERATION);
+
+    new_node->left_child->Addleft (MUL, OPERATION, left_diff, this->right_child->Copy());
+    new_node->left_child->Addright(MUL, OPERATION, this->left_child->Copy(), right_diff);
+
+    new_node->right_child->Addright(2);
+    new_node->right_child->Addleft(this->right_child->Copy());
+
+    return new_node;
 }
 
 template <typename type_t>
 TreeNode<type_t>* TreeNode<type_t>::DiffPow()
 {
-    return this;
+    assert(this);
+    TreeNode<type_t>* new_node = new TreeNode<type_t>(MUL, OPERATION, nullptr, this->Copy());
+
+    TreeNode<type_t>* tmp_node = new TreeNode<type_t>(LN, FUNC, new TreeNode<type_t>(), this->left_child->Copy());
+
+    new_node->Addleft(ADD, OPERATION);
+
+    new_node->left_child->Addleft (MUL, OPERATION, tmp_node->DiffNode(false), this->right_child->Copy());
+    new_node->left_child->Addright(MUL, OPERATION, tmp_node, right_diff);
+    return new_node;
 }
 
 template <typename type_t>
 TreeNode<type_t>* TreeNode<type_t>::DiffSin()
 {
-    return this;
+    assert(this);
+    TreeNode<type_t>* new_node = new TreeNode<type_t>(MUL, OPERATION, right_diff, nullptr);
+
+    new_node->right_child->UpdateNode(COS, FUNC, nullptr, this->right_child->Copy());
+
+    return new_node;
 }
 
 template <typename type_t>
 TreeNode<type_t>* TreeNode<type_t>::DiffCos()
 {
-    return this;
+    assert(this);
+    TreeNode<type_t>* new_node = new TreeNode<type_t>(SUB, OPERATION, nullptr, nullptr);
+
+    new_node->right_child->UpdateNode(SIN, FUNC, nullptr, right_diff);
+
+    return new_node;
 }
 
 template <typename type_t>
 TreeNode<type_t>* TreeNode<type_t>::DiffTan()
 {
-    return this;
+    assert(this);
+    TreeNode<type_t>* new_node = new TreeNode<type_t>(DIV, OPERATION, right_diff, nullptr);
+
+    new_node->right_child->UpdateNode(POW, OPERATION, this->Copy(), nullptr);
+
+    new_node->right_child->right_child->UpdateNode(2, VALUE);
+    new_node->right_child->left_child->UpdateNode(COS, FUNC);
+
+    return new_node;
 }
 
 template <typename type_t>
 TreeNode<type_t>* TreeNode<type_t>::DiffLn()
 {
-    return this;
+    assert(this);
+    return new TreeNode<type_t>(DIV, OPERATION, right_diff, this->right_child->Copy());
 }
 
 template <typename type_t>
 TreeNode<type_t>* TreeNode<type_t>::DiffSinh()
 {
-    return this;
+    assert(this);
+    TreeNode<type_t>* new_node = new TreeNode<type_t>(MUL, OPERATION, right_diff, this->Copy());
+
+    new_node->right_child->UpdateNode(COSH, FUNC);
+
+    return new_node;
 }
 
 template <typename type_t>
 TreeNode<type_t>* TreeNode<type_t>::DiffCosh()
 {
-    return this;
+    assert(this);
+    TreeNode<type_t>* new_node = new TreeNode<type_t>(MUL, OPERATION, right_diff, this->Copy());
+
+    new_node->right_child->UpdateNode(SINH, FUNC);
+
+    return new_node;
 }
 
 template <typename type_t>
 TreeNode<type_t>* TreeNode<type_t>::DiffTanh()
 {
-    return this;
+    assert(this);
+    TreeNode<type_t>* new_node = new TreeNode<type_t>(DIV, OPERATION, right_diff, nullptr);
+
+    new_node->right_child->UpdateNode(POW, OPERATION, this->Copy(), nullptr);
+
+    new_node->right_child->right_child->UpdateNode(2, VALUE);
+    new_node->right_child->left_child->UpdateNode(COSH, FUNC);
+
+    return new_node;
 }
 
-#endif
+
 #endif // DECLARE_FUNC

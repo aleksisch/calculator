@@ -1,0 +1,5 @@
+\documentclass{article}
+                        \usepackage{hyperref}
+                        \begin{document}
+ $$I \quad read: \quad {({5.000}^{x})}$$$$Differencial\quad before \quad Simplify \quad is \quad {({({(\frac{{0.000}} {{5.000}}\cdot{x})}+{({ln{5.000}}\cdot{1.000})})}\cdot{({5.000}^{x})})}$$$$Differencial\quad after \quad {({1.609}\cdot{({5.000}^{x})})}$$$$Get \quad result \quad of \quad expression, x = 2.000: \quad{({1.609}\cdot{({5.000}^{x})})} = 40.236$$
+\end{document}

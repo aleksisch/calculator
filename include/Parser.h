@@ -12,7 +12,7 @@ class Parser
         Parser()  {}
         ~Parser() {}
 
-        static TreeNode<type_t>* CreateTree(const char* file = "input.txt");
+        static TreeNode<type_t>* CreateTree(const char* file = input_graph_file);
 
     private:
 

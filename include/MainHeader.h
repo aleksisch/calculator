@@ -7,9 +7,6 @@
 #include <math.h>
 #include <assert.h>
 
-#include "constants.h"
-
-
 template <typename type_t>
 class TreeNode;
 
@@ -30,9 +27,14 @@ void CloseLatexFile(FILE*& file);
 
 void PrintError(int err_code, const char* function_name);
 
+
+#include "constants.h"
+
 #include "Node.h"
 
 #include "CalcTree.h"
+
+#include "OperationArray.h"
 
 #include "WorkString.h"
 

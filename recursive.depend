@@ -1,10 +1,57 @@
 # depslib dependency file v1.0
-1574517587 source:/home/aleksey/c++/recursive_descent/recursive/main.cpp
+1574896276 source:/home/aleksey/c++/recursive_descent/recursive/main.cpp
 	<iostream>
-	"include/Parser.h"
+	"include/MainHeader.h"
 
-1574627313 /home/aleksey/c++/recursive_descent/recursive/include/Parser.h
-	"ReadFile.h"
+1574896004 /home/aleksey/c++/recursive_descent/recursive/include/Parser.h
+	"MainHeader.h"
 
 1574516290 /home/aleksey/c++/recursive_descent/recursive/include/ReadFile.h
+
+1574893024 /home/aleksey/c++/recursive_descent/recursive/include/MainHeader.h
+	<string>
+	<string.h>
+	<stdio.h>
+	<math.h>
+	<assert.h>
+	"constants.h"
+	"Node.h"
+	"CalcTree.h"
+	"OperationArray.h"
+	"WorkString.h"
+	"NodeFunction.h"
+	"CalcFunction.h"
+	"DiffRules.h"
+	"Parser.h"
+
+1574896143 /home/aleksey/c++/recursive_descent/recursive/include/constants.h
+
+1574703285 /home/aleksey/c++/recursive_descent/recursive/include/WorkFile.h
+	"../include/MainHeader.h"
+
+1574894298 /home/aleksey/c++/recursive_descent/recursive/include/Node.h
+	"DiffRules.h"
+
+1574896997 /home/aleksey/c++/recursive_descent/recursive/include/DiffRules.h
+	"CalcTree.h"
+	"OperationArray.h"
+
+1574712592 /home/aleksey/c++/recursive_descent/recursive/include/CalcTree.h
+
+1574893872 /home/aleksey/c++/recursive_descent/recursive/include/WorkString.h
+	"../include/MainHeader.h"
+
+1574896860 /home/aleksey/c++/recursive_descent/recursive/include/NodeFunction.h
+	"../include/MainHeader.h"
+	"WorkString.h"
+
+1574891703 /home/aleksey/c++/recursive_descent/recursive/include/CalcFunction.h
+	"../include/MainHeader.h"
+
+1574708514 /home/aleksey/c++/recursive_descent/recursive/include/Operations.h
+
+1574896707 /home/aleksey/c++/recursive_descent/recursive/include/DiffFunc.h
+
+1574895314 /home/aleksey/c++/recursive_descent/recursive/include/OperationArray.h
+	"DiffFunc.h"
 

@@ -34,8 +34,16 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/CalcFunction.h" />
+		<Unit filename="include/CalcTree.h" />
+		<Unit filename="include/DiffFunc.h" />
+		<Unit filename="include/DiffRules.h" />
+		<Unit filename="include/MainHeader.h" />
+		<Unit filename="include/Node.h" />
+		<Unit filename="include/NodeFunction.h" />
 		<Unit filename="include/Parser.h" />
-		<Unit filename="include/ReadFile.h" />
+		<Unit filename="include/WorkString.h" />
+		<Unit filename="include/constants.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

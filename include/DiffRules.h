@@ -2,6 +2,7 @@
 #define DIFFRULES_H_INCLUDED
 
 #include "CalcTree.h"
+#include "OperationArray.h"
 
 template <typename type_t>
 TreeNode<type_t>* TreeNode<type_t>::DiffNode(bool is_first)
@@ -22,103 +23,24 @@ TreeNode<type_t>* TreeNode<type_t>::DiffNode(bool is_first)
         return new_node;
     }
 
-    TreeNode<type_t>*& left  = this->left_child;
-    TreeNode<type_t>*& right = this->right_child;
-
-    TreeNode<type_t>*& new_left  = new_node->left_child;
-    TreeNode<type_t>*& new_right = new_node->right_child;
-
-    TreeNode<type_t>* left_diff  = left->DiffNode(false);
-    TreeNode<type_t>* right_diff = right->DiffNode(false);
-
-    switch(MyRound(this->number))
-    {
-        case (ADD):
-        case (SUB):
-
-            new_node->UpdateNode(left_diff, right_diff);
-            break;
-
-        case (MUL):
-
-            new_node->UpdateNode(ADD, OPERATION);
-
-            new_node->Addleft (MUL, OPERATION, left_diff, right->Copy());
-            new_node->Addright(MUL, OPERATION, left->Copy(), right_diff);
-            break;
-
-        case (DIV):
-
-            new_node->Addleft(SUB, OPERATION);
-            new_node->Addright(POW, OPERATION);
-
-            new_left->Addleft (MUL, OPERATION, left_diff, right->Copy());
-            new_left->Addright(MUL, OPERATION, left->Copy(), right_diff);
-
-            new_right->Addright(2);
-            new_right->Addleft(right->Copy());
-            break;
-
-        case (SIN):
-
-            new_node ->UpdateNode(MUL, OPERATION, right_diff, nullptr);
-            new_right->UpdateNode(COS, FUNC, nullptr, right->Copy());
-            break;
-
-        case (COS):
-
-            new_node ->UpdateNode(SUB, OPERATION, nullptr, nullptr);
-            new_right->UpdateNode(SIN, FUNC, nullptr, right_diff);
-            break;
-
-        case (TAN):
-
-            new_node ->UpdateNode(DIV, OPERATION, right_diff, nullptr);
-            new_right->UpdateNode(POW, FUNC, this->Copy(), nullptr);
-
-            new_right->right_child->UpdateNode(2, VALUE);
-            new_right->left_child->UpdateNode(COS, FUNC);
-            break;
-
-        case POW:
-        {
-            TreeNode<type_t>* tmp_node = new TreeNode<type_t>(LN, FUNC, new TreeNode<type_t>(), left->Copy());
-
-            new_node->UpdateNode(MUL, OPERATION, nullptr, this->Copy());
-            new_left->UpdateNode(ADD, OPERATION);
-
-            new_left->Addleft (MUL, OPERATION, tmp_node->DiffNode(false), right->Copy());
-            new_left->Addright(MUL, OPERATION, tmp_node, right_diff);
-            break;
-        }
-        case LN:
-
-            new_node->UpdateNode(DIV, OPERATION, right_diff, right->Copy());
-            break;
-
-        case SINH:
-
-            new_node ->UpdateNode(MUL, OPERATION, right_diff, this->Copy());
-            new_right->UpdateNode(COSH, FUNC);
-            break;
-
-        case COSH:
-
-            new_node ->UpdateNode(MUL, OPERATION, right_diff, this->Copy());
-            new_right->UpdateNode(SINH, FUNC);
-            break;
-
-        default:
-
-            PrintError(UNKNOWN_OPERATION, "Be careful, return nullptr, diff_node");
-            return nullptr;
-    }
+    else
+        for (int op = 0; op < NUM_OPER; op++)
+            if (MyRound(this->number) == Operation<type_t>[op].num)
+            {
+                new_node = (this->*(Operation<type_t>[op].func))();
+                break;
+            }
 
     if (is_first)
     {
+
+        fprintf(CalcTree<type_t>::log_file, "$$$$Differencial\\quad before \\quad Simplify \\quad is \\quad ");
+
+        new_node->LogToLatex(CalcTree<type_t>::log_file);
+
         new_node = new_node->Simplify();
 
-        fprintf(CalcTree<type_t>::log_file, "$$$$Differencial\\quad is \\quad ");
+        fprintf(CalcTree<type_t>::log_file, "$$$$Differencial\\quad after \\quad ");
 
         new_node->LogToLatex(CalcTree<type_t>::log_file);
     }
@@ -127,3 +49,6 @@ TreeNode<type_t>* TreeNode<type_t>::DiffNode(bool is_first)
 }
 
 #endif // DIFFRULES_H_INCLUDED
+
+
+

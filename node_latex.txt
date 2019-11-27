@@ -1,0 +1,4 @@
+\documentclass{article}
+                        \usepackage{hyperref}
+                        \begin{document}
+ $${({(\frac{{1.000}} {{x}}\cdot{2.000})}\cdot{({x}^{2.000})})}
