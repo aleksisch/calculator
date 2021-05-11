@@ -1,5 +1,4 @@
-#ifndef NODE_H_INCLUDED
-#define NODE_H_INCLUDED
+#pragma once
 
 template <typename type_t>
 class TreeNode
@@ -72,7 +71,3 @@ class TreeNode
         void NodeToTex(FILE* output_file);
 
 };
-
-#include "DiffRules.h"
-
-#endif // NODE_H_INCLUDED

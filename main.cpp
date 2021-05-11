@@ -1,12 +1,16 @@
 #include <iostream>
 #include "include/MainHeader.h"
 
-int main()
+int main(int argc, char** argv)
 {
+    if (argc < 2) {
+        printf("Expected file with expression\n");
+        return 0;
+    }
     CalcTree<double>* cur = new CalcTree<double>;
     CalcTree<double>* diff = new CalcTree<double>;
 
-    cur->head_node = Parser<double>::CreateTree();
+    cur->head_node = Parser<double>::CreateTree(argv[1]);
 
     cur->GraphToDot();
 

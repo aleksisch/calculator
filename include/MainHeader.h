@@ -1,5 +1,4 @@
-#ifndef MAINHEADER_H_INCLUDED
-#define MAINHEADER_H_INCLUDED
+#pragma once
 
 #include <string>
 #include <string.h>
@@ -45,5 +44,3 @@ void PrintError(int err_code, const char* function_name);
 #include "DiffRules.h"
 
 #include "Parser.h"
-
-#endif // MAINHEADER_H_INCLUDED

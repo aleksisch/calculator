@@ -1,5 +1,4 @@
-#ifndef DIFFRULES_H_INCLUDED
-#define DIFFRULES_H_INCLUDED
+#pragma once
 
 #include "CalcTree.h"
 #include "OperationArray.h"
@@ -47,8 +46,3 @@ TreeNode<type_t>* TreeNode<type_t>::DiffNode(bool is_first)
 
     return new_node;
 }
-
-#endif // DIFFRULES_H_INCLUDED
-
-
-

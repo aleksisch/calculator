@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../include/MainHeader.h"
 
 #include "WorkString.h"

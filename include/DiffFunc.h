@@ -1,5 +1,4 @@
-#ifndef DECLARE_FUNC
-#define DECLARE_FUNC
+#pragma once
 
 #define left_diff  this->left_child->DiffNode(false)
 #define right_diff this->right_child->DiffNode(false)
@@ -141,6 +140,3 @@ TreeNode<type_t>* TreeNode<type_t>::DiffTanh()
 
     return new_node;
 }
-
-
-#endif // DECLARE_FUNC

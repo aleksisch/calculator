@@ -1,6 +1,4 @@
-#ifndef CalcTree_H
-#define CalcTree_H
-
+#pragma once
 
 template <typename type_t>
 class CalcTree
@@ -38,4 +36,3 @@ int MyRound(type_t num)
 {
     return static_cast<int> (std::round(num));
 }
-#endif // CalcTree_H

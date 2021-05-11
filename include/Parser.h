@@ -1,5 +1,4 @@
-#ifndef PARSER_H
-#define PARSER_H
+#pragma once
 
 #include "MainHeader.h"
 
@@ -219,5 +218,3 @@ void SkipToBrace(const char*& ptr_on_text)
            *ptr_on_text == ' ' )
             ptr_on_text++;
 }
-
-#endif // PARSER_H

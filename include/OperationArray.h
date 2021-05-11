@@ -1,5 +1,7 @@
-#ifndef OPERATIONARRAY_H_INCLUDED
-#define OPERATIONARRAY_H_INCLUDED
+#pragma once
+
+#include "DiffFunc.h"
+
 
 template <typename type_t>
 struct Operators
@@ -9,8 +11,6 @@ struct Operators
     char name[STR_LENGTH];
     TreeNode<type_t>* (TreeNode<type_t>::*func)(void);
 };
-
-#include "DiffFunc.h"
 
 template <typename type_t>
 const Operators<type_t> Operation[] = {
@@ -28,5 +28,3 @@ const Operators<type_t> Operation[] = {
                                         {COSH, FUNC, "ch",    &TreeNode<type_t>::DiffCosh},
                                         {TANH, FUNC, "th",    &TreeNode<type_t>::DiffTanh},
                                      };
-
-#endif // OPERATIONARRAY_H_INCLUDED

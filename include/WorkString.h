@@ -1,5 +1,4 @@
-#ifndef WORK_STRING_HEADER
-#define WORK_STRING_HEADER
+#pragma once
 
 #include "../include/MainHeader.h"
 
@@ -147,5 +146,3 @@ char* ReadFile (const char* str, size_t *size, const char* chmod)
 
     return text;
 }
-
-#endif

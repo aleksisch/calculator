@@ -1,11 +1,10 @@
-#ifndef CONSTANTS_H_INCLUDED
-#define CONSTANTS_H_INCLUDED
+#pragma once
 
 static const char* input_graph_file  = "input.txt";
 static const char* output_graph_file = "out_graph.txt";
 static const char* output_graphviz   = "tmp_dump.dt";
 static const char* output_latex      = "node_latex.txt";
-static const char* log_filename      = "log.txt";
+static const char* log_filename      = "result.txt";
 
 static const int STR_LENGTH = 255;
 
@@ -41,5 +40,3 @@ enum Return
     OPERATION,
     UNKNOWN_OPERATION,
 };
-
-#endif // CONSTANTS_H_INCLUDED
